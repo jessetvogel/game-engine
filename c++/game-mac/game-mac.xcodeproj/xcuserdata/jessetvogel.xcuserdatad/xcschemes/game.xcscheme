@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "31F5072822AE990C003F32CD"
-               BuildableName = "game.app"
-               BlueprintName = "game"
-               ReferencedContainer = "container:game.xcodeproj">
+               BuildableName = "game-mac.app"
+               BlueprintName = "game-mac"
+               ReferencedContainer = "container:game-mac.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "31F5072822AE990C003F32CD"
-            BuildableName = "game.app"
-            BlueprintName = "game"
-            ReferencedContainer = "container:game.xcodeproj">
+            BuildableName = "game-mac.app"
+            BlueprintName = "game-mac"
+            ReferencedContainer = "container:game-mac.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "31F5072822AE990C003F32CD"
-            BuildableName = "game.app"
-            BlueprintName = "game"
-            ReferencedContainer = "container:game.xcodeproj">
+            BuildableName = "game-mac.app"
+            BlueprintName = "game-mac"
+            ReferencedContainer = "container:game-mac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "31F5072822AE990C003F32CD"
-            BuildableName = "game.app"
-            BlueprintName = "game"
-            ReferencedContainer = "container:game.xcodeproj">
+            BuildableName = "game-mac.app"
+            BlueprintName = "game-mac"
+            ReferencedContainer = "container:game-mac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

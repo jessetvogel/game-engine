@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:game.xcodeproj">
+      location = "self:/Users/jessetvogel/Projects/game-engine/c++/game-mac/game-mac.xcodeproj">
    </FileRef>
 </Workspace>
