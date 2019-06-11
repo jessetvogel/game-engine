@@ -7,7 +7,15 @@
 
 namespace Game {
 
+    class Controller;
     
+    typedef struct {
+        Controller* c;
+        std::string type;
+        std::string id;
+        std::map<std::string, std::string>& params;
+        
+    } ObjectData;
     
 }
 

@@ -6,24 +6,20 @@
 
 #include "types.hpp"
 
-using namespace std;
-
 namespace Game {
 
     class Controller {
         
         ObjectFactory* objectFactory = nullptr;
         
-        map<string, vector<Object*>> objects;
-        map<string, Object*> objectsById;
-        vector<Object*> objectsToAdd, objectsToDestroy;
+        std::map<std::string, std::vector<Object*>> objects;
+        std::map<std::string, Object*> objectsById;
+        std::vector<Object*> objectsToAdd, objectsToDestroy;
 
-        string sceneToLoad;
+        std::string sceneToLoad;
         
         void clearObjects();
         void manageObjects();
-        
-        void error(string);
         
     public:
         
@@ -34,11 +30,13 @@ namespace Game {
         
         // Methods to be called by Objects. Any instructions will be
         // stored in a queue, and executed before the next update iteration.
-        bool goToScene(string);
-        bool create(map<string, string>&);
+        bool goToScene(std::string);
+        bool create(ObjectData&);
         bool destroy(Object*);
-        Object* getObjectById(string);
-        vector<Object*> getObjectsByType(string);
+        Object* getObjectById(std::string);
+        std::vector<Object*> getObjectsByType(std::string);
+      
+        void error(std::string);
         
     };
     

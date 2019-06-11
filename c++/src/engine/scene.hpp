@@ -9,7 +9,7 @@ namespace Game {
     
     public:
         
-        static bool load(Controller*, string);
+        static bool load(Controller*, std::string);
         
     };
 

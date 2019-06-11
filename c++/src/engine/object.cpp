@@ -1,7 +1,10 @@
 #include "object.hpp"
 
+using namespace std;
 using namespace Game;
 
-Object::Object(Controller* c, dict& params) : c(c), id(params["id"]), type(params["type"]) {
+Object::Object(ObjectData& data) : c(c),
+                                   type(data.type),
+                                   id(data.id) {
     
 }

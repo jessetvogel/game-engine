@@ -1,6 +1,7 @@
 #include "controller.hpp"
 #include "scene.hpp"
 
+using namespace std;
 using namespace Game;
 
 void Controller::clearObjects() {
@@ -77,23 +78,17 @@ bool Controller::goToScene(string scene) {
     return true;
 }
 
-bool Controller::create(map<string, string>& info) {
+bool Controller::create(ObjectData& data) {
     // Requires an object factory
     if(objectFactory == nullptr) {
         error("object factory is not set");
         return false;
     }
     
-    // Require info.type be set
-    if(info.find("type") == info.end()) {
-        error("info.type is not set");
-        return false;
-    }
-    
     // Try to produce an object
-    Object* obj = objectFactory->create(info);
+    Object* obj = objectFactory->create(data);
     if(obj == nullptr) {
-        error("failed to create object of type " + info["type"]);
+        error("failed to create object of type " + data.type);
         return false;
     }
     

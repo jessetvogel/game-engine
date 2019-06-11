@@ -3,16 +3,14 @@
 
 #include "types.hpp"
 
-using namespace std;
-
 namespace Game {
     
     class Controller;
     
     class Object {
 
-        const string id;
-        const string type;
+        const std::string id;
+        const std::string type;
         
     protected:
         
@@ -20,11 +18,11 @@ namespace Game {
         
     public:
         
-        Object(Controller*, map<string, string>&);
+        Object(ObjectData&);
         virtual ~Object() {};
         
-        const string getId() { return id; }
-        const string getType() { return type; }
+        const std::string getId() { return id; }
+        const std::string getType() { return type; }
         
         virtual void update(double) = 0;
         virtual void render() = 0;

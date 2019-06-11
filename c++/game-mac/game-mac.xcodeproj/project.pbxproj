@@ -7,15 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		313C666122AEC0D000EF8A7C /* controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C665F22AEC0D000EF8A7C /* controller.cpp */; };
-		313C666422AEC0DA00EF8A7C /* object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C666222AEC0DA00EF8A7C /* object.cpp */; };
-		313C666722AEC0F000EF8A7C /* animatable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C666522AEC0F000EF8A7C /* animatable.cpp */; };
-		313C666A22AEC0FD00EF8A7C /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C666822AEC0FD00EF8A7C /* scene.cpp */; };
-		31F5072E22AE990C003F32CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F5072D22AE990C003F32CD /* AppDelegate.m */; };
+		31F1D2AD22AFF37F0023D763 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D2AB22AFF37F0023D763 /* factory.cpp */; };
+		31F1D2B822AFF3B60023D763 /* controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C665F22AEC0D000EF8A7C /* controller.cpp */; };
+		31F1D2B922AFF3B60023D763 /* object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C666222AEC0DA00EF8A7C /* object.cpp */; };
+		31F1D2BA22AFF3B60023D763 /* animatable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C666522AEC0F000EF8A7C /* animatable.cpp */; };
+		31F1D2BB22AFF3B60023D763 /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C666822AEC0FD00EF8A7C /* scene.cpp */; };
+		31F1D2BC22AFF3F10023D763 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31F1D2B222AFF3950023D763 /* libengine.a */; };
+		31F1D2BF22AFF6A20023D763 /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D2BD22AFF6A20023D763 /* tile.cpp */; };
+		31F5072E22AE990C003F32CD /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31F5072D22AE990C003F32CD /* AppDelegate.mm */; };
 		31F5073122AE990C003F32CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F5073022AE990C003F32CD /* main.m */; };
 		31F5073322AE990C003F32CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31F5073222AE990C003F32CD /* Assets.xcassets */; };
 		31F5073622AE990C003F32CD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F5073422AE990C003F32CD /* MainMenu.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		31F1D2B622AFF39F0023D763 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31F5072122AE990C003F32CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31F1D2B122AFF3950023D763;
+			remoteInfo = engine;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		313C665F22AEC0D000EF8A7C /* controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = controller.cpp; path = ../src/engine/controller.cpp; sourceTree = SOURCE_ROOT; };
@@ -28,9 +41,14 @@
 		313C666922AEC0FD00EF8A7C /* scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = scene.hpp; path = ../src/engine/scene.hpp; sourceTree = SOURCE_ROOT; };
 		313C666C22AEC16100EF8A7C /* objectfactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = objectfactory.hpp; path = ../src/engine/objectfactory.hpp; sourceTree = SOURCE_ROOT; };
 		313C666E22AEC3C500EF8A7C /* types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = types.hpp; path = ../src/engine/types.hpp; sourceTree = SOURCE_ROOT; };
+		31F1D2AB22AFF37F0023D763 /* factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = factory.cpp; path = "../src/example-game/factory.cpp"; sourceTree = "<group>"; };
+		31F1D2AC22AFF37F0023D763 /* factory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = factory.hpp; path = "../src/example-game/factory.hpp"; sourceTree = "<group>"; };
+		31F1D2B222AFF3950023D763 /* libengine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libengine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		31F1D2BD22AFF6A20023D763 /* tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tile.cpp; path = "../src/example-game/tile.cpp"; sourceTree = "<group>"; };
+		31F1D2BE22AFF6A20023D763 /* tile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = tile.hpp; path = "../src/example-game/tile.hpp"; sourceTree = "<group>"; };
 		31F5072922AE990C003F32CD /* game-mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "game-mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31F5072C22AE990C003F32CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "game-mac/AppDelegate.h"; sourceTree = SOURCE_ROOT; };
-		31F5072D22AE990C003F32CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "game-mac/AppDelegate.m"; sourceTree = SOURCE_ROOT; };
+		31F5072D22AE990C003F32CD /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "game-mac/AppDelegate.mm"; sourceTree = SOURCE_ROOT; };
 		31F5073022AE990C003F32CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "game-mac/main.m"; sourceTree = SOURCE_ROOT; };
 		31F5073222AE990C003F32CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "game-mac/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		31F5073522AE990C003F32CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -38,10 +56,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		31F1D2AF22AFF3950023D763 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31F5072622AE990C003F32CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F1D2BC22AFF3F10023D763 /* libengine.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,10 +92,22 @@
 			path = game;
 			sourceTree = "<group>";
 		};
+		31F1D2AA22AFF3420023D763 /* example-game */ = {
+			isa = PBXGroup;
+			children = (
+				31F1D2AB22AFF37F0023D763 /* factory.cpp */,
+				31F1D2AC22AFF37F0023D763 /* factory.hpp */,
+				31F1D2BD22AFF6A20023D763 /* tile.cpp */,
+				31F1D2BE22AFF6A20023D763 /* tile.hpp */,
+			);
+			name = "example-game";
+			sourceTree = "<group>";
+		};
 		31F5072022AE990C003F32CD = {
 			isa = PBXGroup;
 			children = (
 				313C665E22AEC0A900EF8A7C /* engine */,
+				31F1D2AA22AFF3420023D763 /* example-game */,
 				31F5072B22AE990C003F32CD /* game */,
 				31F5072A22AE990C003F32CD /* Products */,
 			);
@@ -79,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				31F5072922AE990C003F32CD /* game-mac.app */,
+				31F1D2B222AFF3950023D763 /* libengine.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				31F5072C22AE990C003F32CD /* AppDelegate.h */,
-				31F5072D22AE990C003F32CD /* AppDelegate.m */,
+				31F5072D22AE990C003F32CD /* AppDelegate.mm */,
 				31F5073222AE990C003F32CD /* Assets.xcassets */,
 				31F5073422AE990C003F32CD /* MainMenu.xib */,
 				31F5073722AE990C003F32CD /* Info.plist */,
@@ -106,7 +145,34 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		31F1D2B022AFF3950023D763 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		31F1D2B122AFF3950023D763 /* engine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31F1D2B322AFF3960023D763 /* Build configuration list for PBXNativeTarget "engine" */;
+			buildPhases = (
+				31F1D2AE22AFF3950023D763 /* Sources */,
+				31F1D2AF22AFF3950023D763 /* Frameworks */,
+				31F1D2B022AFF3950023D763 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = engine;
+			productName = engine;
+			productReference = 31F1D2B222AFF3950023D763 /* libengine.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		31F5072822AE990C003F32CD /* game-mac */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31F5073A22AE990C003F32CD /* Build configuration list for PBXNativeTarget "game-mac" */;
@@ -118,6 +184,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				31F1D2B722AFF39F0023D763 /* PBXTargetDependency */,
 			);
 			name = "game-mac";
 			productName = game;
@@ -133,6 +200,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Jesse Vogel";
 				TargetAttributes = {
+					31F1D2B122AFF3950023D763 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 					31F5072822AE990C003F32CD = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
@@ -151,6 +221,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				31F1D2B122AFF3950023D763 /* engine */,
 				31F5072822AE990C003F32CD /* game-mac */,
 			);
 		};
@@ -169,20 +240,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		31F1D2AE22AFF3950023D763 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31F1D2B822AFF3B60023D763 /* controller.cpp in Sources */,
+				31F1D2B922AFF3B60023D763 /* object.cpp in Sources */,
+				31F1D2BA22AFF3B60023D763 /* animatable.cpp in Sources */,
+				31F1D2BB22AFF3B60023D763 /* scene.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31F5072522AE990C003F32CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				313C666122AEC0D000EF8A7C /* controller.cpp in Sources */,
 				31F5073122AE990C003F32CD /* main.m in Sources */,
-				313C666A22AEC0FD00EF8A7C /* scene.cpp in Sources */,
-				313C666422AEC0DA00EF8A7C /* object.cpp in Sources */,
-				31F5072E22AE990C003F32CD /* AppDelegate.m in Sources */,
-				313C666722AEC0F000EF8A7C /* animatable.cpp in Sources */,
+				31F5072E22AE990C003F32CD /* AppDelegate.mm in Sources */,
+				31F1D2AD22AFF37F0023D763 /* factory.cpp in Sources */,
+				31F1D2BF22AFF6A20023D763 /* tile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31F1D2B722AFF39F0023D763 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31F1D2B122AFF3950023D763 /* engine */;
+			targetProxy = 31F1D2B622AFF39F0023D763 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		31F5073422AE990C003F32CD /* MainMenu.xib */ = {
@@ -197,6 +285,24 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		31F1D2B422AFF3960023D763 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = ../lib/include;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		31F1D2B522AFF3960023D763 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = ../lib/include;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		31F5073822AE990C003F32CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -281,6 +387,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = ../lib/include;
 				INFOPLIST_FILE = "game-mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.jessetvogel.game-mac";
@@ -293,6 +400,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = ../lib/include;
 				INFOPLIST_FILE = "game-mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.jessetvogel.game-mac";
@@ -303,6 +411,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		31F1D2B322AFF3960023D763 /* Build configuration list for PBXNativeTarget "engine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31F1D2B422AFF3960023D763 /* Debug */,
+				31F1D2B522AFF3960023D763 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		31F5072422AE990C003F32CD /* Build configuration list for PBXProject "game-mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
