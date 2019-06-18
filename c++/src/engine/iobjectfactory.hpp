@@ -1,12 +1,12 @@
-#ifndef objectfactory_hpp
-#define objectfactory_hpp
+#ifndef iobjectfactory_hpp
+#define iobjectfactory_hpp
 
 #include "types.hpp"
 #include "object.hpp"
 
 namespace Game {
     
-    class ObjectFactory {
+    class IObjectFactory {
         
     public:
         

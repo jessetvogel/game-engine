@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+#import "openglview.hpp"
 #include "controller.hpp"
 #include "factory.hpp"
 
@@ -11,14 +12,17 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification*) aNotification {
     // Insert code here to initialize your application
-    Game::Controller controller;
+    Game::Controller* controller = new Game::Controller();
     
-    Example::Factory factory;
-    controller.setObjectFactory(&factory);
+    Example::Factory* factory = new Example::Factory();
+    controller->setObjectFactory(factory);
     
-    controller.goToScene("/Users/jessetvogel/Desktop/test.json");
+    controller->goToScene("/Users/jessetvogel/Desktop/test.json");
     
-    controller.update(1);
+    OpenGLView* view = [[[NSApp windows] objectAtIndex: 0] contentView];
+    [view setController: controller];
+    
+    [view setNeedsDisplay: YES];
 }
 
 - (void)applicationWillTerminate:(NSNotification*) aNotification {

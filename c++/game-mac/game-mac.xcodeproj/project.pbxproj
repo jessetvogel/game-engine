@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		316957D022B13BFD001BE627 /* openglview.mm in Sources */ = {isa = PBXBuildFile; fileRef = 316957CF22B13BFD001BE627 /* openglview.mm */; };
+		317BBE2D22B94142005AF45B /* texturemanagergl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 317BBE2B22B94142005AF45B /* texturemanagergl.cpp */; };
+		317BBE2E22B94142005AF45B /* texturemanagergl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 317BBE2C22B94142005AF45B /* texturemanagergl.hpp */; };
+		317BBE3122B94339005AF45B /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 317BBE3022B94339005AF45B /* lodepng.cpp */; };
+		317BBE3322B9433F005AF45B /* lodepng.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 317BBE3222B9433F005AF45B /* lodepng.hpp */; };
+		317BBE3422B944E7005AF45B /* objectmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316957D422B13ECF001BE627 /* objectmanager.cpp */; };
+		317BBE3522B944EB005AF45B /* iresourcemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316957D122B13E75001BE627 /* iresourcemanager.cpp */; };
 		31F1D2AD22AFF37F0023D763 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D2AB22AFF37F0023D763 /* factory.cpp */; };
 		31F1D2B822AFF3B60023D763 /* controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C665F22AEC0D000EF8A7C /* controller.cpp */; };
 		31F1D2B922AFF3B60023D763 /* object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C666222AEC0DA00EF8A7C /* object.cpp */; };
 		31F1D2BA22AFF3B60023D763 /* animatable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C666522AEC0F000EF8A7C /* animatable.cpp */; };
-		31F1D2BB22AFF3B60023D763 /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C666822AEC0FD00EF8A7C /* scene.cpp */; };
 		31F1D2BC22AFF3F10023D763 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31F1D2B222AFF3950023D763 /* libengine.a */; };
 		31F1D2BF22AFF6A20023D763 /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D2BD22AFF6A20023D763 /* tile.cpp */; };
 		31F5072E22AE990C003F32CD /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31F5072D22AE990C003F32CD /* AppDelegate.mm */; };
@@ -37,10 +43,18 @@
 		313C666322AEC0DA00EF8A7C /* object.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = object.hpp; path = ../src/engine/object.hpp; sourceTree = SOURCE_ROOT; };
 		313C666522AEC0F000EF8A7C /* animatable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = animatable.cpp; path = ../src/engine/animatable.cpp; sourceTree = SOURCE_ROOT; };
 		313C666622AEC0F000EF8A7C /* animatable.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = animatable.hpp; path = ../src/engine/animatable.hpp; sourceTree = SOURCE_ROOT; };
-		313C666822AEC0FD00EF8A7C /* scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = scene.cpp; path = ../src/engine/scene.cpp; sourceTree = SOURCE_ROOT; };
-		313C666922AEC0FD00EF8A7C /* scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = scene.hpp; path = ../src/engine/scene.hpp; sourceTree = SOURCE_ROOT; };
-		313C666C22AEC16100EF8A7C /* objectfactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = objectfactory.hpp; path = ../src/engine/objectfactory.hpp; sourceTree = SOURCE_ROOT; };
+		313C666C22AEC16100EF8A7C /* iobjectfactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iobjectfactory.hpp; path = ../src/engine/iobjectfactory.hpp; sourceTree = SOURCE_ROOT; };
 		313C666E22AEC3C500EF8A7C /* types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = types.hpp; path = ../src/engine/types.hpp; sourceTree = SOURCE_ROOT; };
+		316957CE22B13BFD001BE627 /* openglview.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = openglview.hpp; path = ../src/engine/mac/openglview.hpp; sourceTree = SOURCE_ROOT; };
+		316957CF22B13BFD001BE627 /* openglview.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = openglview.mm; path = ../src/engine/mac/openglview.mm; sourceTree = SOURCE_ROOT; };
+		316957D122B13E75001BE627 /* iresourcemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iresourcemanager.cpp; path = ../src/engine/iresourcemanager.cpp; sourceTree = SOURCE_ROOT; };
+		316957D222B13E75001BE627 /* iresourcemanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iresourcemanager.hpp; path = ../src/engine/iresourcemanager.hpp; sourceTree = SOURCE_ROOT; };
+		316957D422B13ECF001BE627 /* objectmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = objectmanager.cpp; path = ../src/engine/objectmanager.cpp; sourceTree = SOURCE_ROOT; };
+		316957D522B13ECF001BE627 /* objectmanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = objectmanager.hpp; path = ../src/engine/objectmanager.hpp; sourceTree = SOURCE_ROOT; };
+		317BBE2B22B94142005AF45B /* texturemanagergl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = texturemanagergl.cpp; path = ../src/engine/opengl/texturemanagergl.cpp; sourceTree = SOURCE_ROOT; };
+		317BBE2C22B94142005AF45B /* texturemanagergl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = texturemanagergl.hpp; path = ../src/engine/opengl/texturemanagergl.hpp; sourceTree = SOURCE_ROOT; };
+		317BBE3022B94339005AF45B /* lodepng.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lodepng.cpp; path = ../lib/lodepng/lodepng.cpp; sourceTree = SOURCE_ROOT; };
+		317BBE3222B9433F005AF45B /* lodepng.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = lodepng.hpp; path = ../lib/lodepng/lodepng.hpp; sourceTree = SOURCE_ROOT; };
 		31F1D2AB22AFF37F0023D763 /* factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = factory.cpp; path = "../src/example-game/factory.cpp"; sourceTree = "<group>"; };
 		31F1D2AC22AFF37F0023D763 /* factory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = factory.hpp; path = "../src/example-game/factory.hpp"; sourceTree = "<group>"; };
 		31F1D2B222AFF3950023D763 /* libengine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libengine.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,13 +96,37 @@
 				313C666022AEC0D000EF8A7C /* controller.hpp */,
 				313C666222AEC0DA00EF8A7C /* object.cpp */,
 				313C666322AEC0DA00EF8A7C /* object.hpp */,
+				313C666C22AEC16100EF8A7C /* iobjectfactory.hpp */,
+				316957D422B13ECF001BE627 /* objectmanager.cpp */,
+				316957D522B13ECF001BE627 /* objectmanager.hpp */,
+				316957D122B13E75001BE627 /* iresourcemanager.cpp */,
+				316957D222B13E75001BE627 /* iresourcemanager.hpp */,
 				313C666522AEC0F000EF8A7C /* animatable.cpp */,
 				313C666622AEC0F000EF8A7C /* animatable.hpp */,
-				313C666822AEC0FD00EF8A7C /* scene.cpp */,
-				313C666922AEC0FD00EF8A7C /* scene.hpp */,
-				313C666C22AEC16100EF8A7C /* objectfactory.hpp */,
+				316957CE22B13BFD001BE627 /* openglview.hpp */,
+				316957CF22B13BFD001BE627 /* openglview.mm */,
 			);
 			name = engine;
+			path = game;
+			sourceTree = "<group>";
+		};
+		317BBE2A22B9410C005AF45B /* opengl */ = {
+			isa = PBXGroup;
+			children = (
+				317BBE2B22B94142005AF45B /* texturemanagergl.cpp */,
+				317BBE2C22B94142005AF45B /* texturemanagergl.hpp */,
+			);
+			name = opengl;
+			path = game;
+			sourceTree = "<group>";
+		};
+		317BBE2F22B9432E005AF45B /* lodepng */ = {
+			isa = PBXGroup;
+			children = (
+				317BBE3022B94339005AF45B /* lodepng.cpp */,
+				317BBE3222B9433F005AF45B /* lodepng.hpp */,
+			);
+			name = lodepng;
 			path = game;
 			sourceTree = "<group>";
 		};
@@ -107,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				313C665E22AEC0A900EF8A7C /* engine */,
+				317BBE2A22B9410C005AF45B /* opengl */,
+				317BBE2F22B9432E005AF45B /* lodepng */,
 				31F1D2AA22AFF3420023D763 /* example-game */,
 				31F5072B22AE990C003F32CD /* game */,
 				31F5072A22AE990C003F32CD /* Products */,
@@ -150,6 +190,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				317BBE3322B9433F005AF45B /* lodepng.hpp in Headers */,
+				317BBE2E22B94142005AF45B /* texturemanagergl.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,10 +286,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				317BBE2D22B94142005AF45B /* texturemanagergl.cpp in Sources */,
 				31F1D2B822AFF3B60023D763 /* controller.cpp in Sources */,
+				317BBE3122B94339005AF45B /* lodepng.cpp in Sources */,
 				31F1D2B922AFF3B60023D763 /* object.cpp in Sources */,
+				317BBE3422B944E7005AF45B /* objectmanager.cpp in Sources */,
 				31F1D2BA22AFF3B60023D763 /* animatable.cpp in Sources */,
-				31F1D2BB22AFF3B60023D763 /* scene.cpp in Sources */,
+				317BBE3522B944EB005AF45B /* iresourcemanager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31F5073122AE990C003F32CD /* main.m in Sources */,
+				316957D022B13BFD001BE627 /* openglview.mm in Sources */,
 				31F5072E22AE990C003F32CD /* AppDelegate.mm in Sources */,
 				31F1D2AD22AFF37F0023D763 /* factory.cpp in Sources */,
 				31F1D2BF22AFF6A20023D763 /* tile.cpp in Sources */,
@@ -289,7 +335,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				HEADER_SEARCH_PATHS = ../lib/include;
+				HEADER_SEARCH_PATHS = ../lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -298,7 +344,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				HEADER_SEARCH_PATHS = ../lib/include;
+				HEADER_SEARCH_PATHS = ../lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -387,7 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				HEADER_SEARCH_PATHS = ../lib/include;
+				HEADER_SEARCH_PATHS = ../lib;
 				INFOPLIST_FILE = "game-mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.jessetvogel.game-mac";
@@ -400,7 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				HEADER_SEARCH_PATHS = ../lib/include;
+				HEADER_SEARCH_PATHS = ../lib;
 				INFOPLIST_FILE = "game-mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.jessetvogel.game-mac";
@@ -418,6 +464,7 @@
 				31F1D2B522AFF3960023D763 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		31F5072422AE990C003F32CD /* Build configuration list for PBXProject "game-mac" */ = {
 			isa = XCConfigurationList;

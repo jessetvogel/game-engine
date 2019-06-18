@@ -1,11 +1,11 @@
 #ifndef factory_hpp
 #define factory_hpp
 
-#include "objectfactory.hpp"
+#include "iobjectfactory.hpp"
 
 namespace Example {
 
-    class Factory : public Game::ObjectFactory {
+    class Factory : public Game::IObjectFactory {
     
     public:
         

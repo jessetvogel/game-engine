@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 namespace Game {
 
@@ -13,9 +13,12 @@ namespace Game {
         Controller* c;
         std::string type;
         std::string id;
-        std::map<std::string, std::string>& params;
+        std::unordered_map<std::string, std::string>& params;
         
     } ObjectData;
+    
+    typedef int ResId;
+    typedef int RefCount;
     
 }
 

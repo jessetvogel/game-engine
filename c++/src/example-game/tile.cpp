@@ -11,7 +11,7 @@ Tile::Tile(ObjectData& data) : Object(data) {
 }
 
 void Tile::update(double dt) {
-
+    cout << "test?" << endl;
 }
 
 void Tile::render() {
