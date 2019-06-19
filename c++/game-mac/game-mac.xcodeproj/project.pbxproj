@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31181FBC22B9756F00EC5BAC /* itexturemanager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 31181FBA22B9756F00EC5BAC /* itexturemanager.hpp */; };
+		31181FC022B9762300EC5BAC /* mycontroller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31181FBE22B9762300EC5BAC /* mycontroller.cpp */; };
 		316957D022B13BFD001BE627 /* openglview.mm in Sources */ = {isa = PBXBuildFile; fileRef = 316957CF22B13BFD001BE627 /* openglview.mm */; };
 		317BBE2D22B94142005AF45B /* texturemanagergl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 317BBE2B22B94142005AF45B /* texturemanagergl.cpp */; };
 		317BBE2E22B94142005AF45B /* texturemanagergl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 317BBE2C22B94142005AF45B /* texturemanagergl.hpp */; };
@@ -16,7 +18,6 @@
 		317BBE3522B944EB005AF45B /* iresourcemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316957D122B13E75001BE627 /* iresourcemanager.cpp */; };
 		31F1D2AD22AFF37F0023D763 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D2AB22AFF37F0023D763 /* factory.cpp */; };
 		31F1D2B822AFF3B60023D763 /* controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C665F22AEC0D000EF8A7C /* controller.cpp */; };
-		31F1D2B922AFF3B60023D763 /* object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C666222AEC0DA00EF8A7C /* object.cpp */; };
 		31F1D2BA22AFF3B60023D763 /* animatable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C666522AEC0F000EF8A7C /* animatable.cpp */; };
 		31F1D2BC22AFF3F10023D763 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31F1D2B222AFF3950023D763 /* libengine.a */; };
 		31F1D2BF22AFF6A20023D763 /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D2BD22AFF6A20023D763 /* tile.cpp */; };
@@ -24,6 +25,11 @@
 		31F5073122AE990C003F32CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F5073022AE990C003F32CD /* main.m */; };
 		31F5073322AE990C003F32CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31F5073222AE990C003F32CD /* Assets.xcassets */; };
 		31F5073622AE990C003F32CD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F5073422AE990C003F32CD /* MainMenu.xib */; };
+		31FA47CF22BAD4B8003A2C5D /* inputmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31FA47CD22BAD4B8003A2C5D /* inputmanager.cpp */; };
+		31FA47D022BAD4B8003A2C5D /* inputmanager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 31FA47CE22BAD4B8003A2C5D /* inputmanager.hpp */; };
+		31FA47D322BADAE4003A2C5D /* shadermanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31FA47D122BADAE4003A2C5D /* shadermanager.cpp */; };
+		31FA47D422BADAE4003A2C5D /* shadermanager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 31FA47D222BADAE4003A2C5D /* shadermanager.hpp */; };
+		31FA47D822BADC07003A2C5D /* ishader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 31FA47D622BADC07003A2C5D /* ishader.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31181FBA22B9756F00EC5BAC /* itexturemanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = itexturemanager.hpp; path = ../src/engine/itexturemanager.hpp; sourceTree = SOURCE_ROOT; };
+		31181FBE22B9762300EC5BAC /* mycontroller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mycontroller.cpp; path = "../src/example-game/mycontroller.cpp"; sourceTree = "<group>"; };
+		31181FBF22B9762300EC5BAC /* mycontroller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = mycontroller.hpp; path = "../src/example-game/mycontroller.hpp"; sourceTree = "<group>"; };
 		313C665F22AEC0D000EF8A7C /* controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = controller.cpp; path = ../src/engine/controller.cpp; sourceTree = SOURCE_ROOT; };
 		313C666022AEC0D000EF8A7C /* controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = controller.hpp; path = ../src/engine/controller.hpp; sourceTree = SOURCE_ROOT; };
-		313C666222AEC0DA00EF8A7C /* object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = object.cpp; path = ../src/engine/object.cpp; sourceTree = SOURCE_ROOT; };
-		313C666322AEC0DA00EF8A7C /* object.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = object.hpp; path = ../src/engine/object.hpp; sourceTree = SOURCE_ROOT; };
+		313C666322AEC0DA00EF8A7C /* iobject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iobject.hpp; path = ../src/engine/iobject.hpp; sourceTree = SOURCE_ROOT; };
 		313C666522AEC0F000EF8A7C /* animatable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = animatable.cpp; path = ../src/engine/animatable.cpp; sourceTree = SOURCE_ROOT; };
 		313C666622AEC0F000EF8A7C /* animatable.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = animatable.hpp; path = ../src/engine/animatable.hpp; sourceTree = SOURCE_ROOT; };
 		313C666C22AEC16100EF8A7C /* iobjectfactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iobjectfactory.hpp; path = ../src/engine/iobjectfactory.hpp; sourceTree = SOURCE_ROOT; };
@@ -67,6 +75,11 @@
 		31F5073222AE990C003F32CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "game-mac/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		31F5073522AE990C003F32CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		31F5073722AE990C003F32CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "game-mac/Info.plist"; sourceTree = SOURCE_ROOT; };
+		31FA47CD22BAD4B8003A2C5D /* inputmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = inputmanager.cpp; path = ../src/engine/inputmanager.cpp; sourceTree = SOURCE_ROOT; };
+		31FA47CE22BAD4B8003A2C5D /* inputmanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = inputmanager.hpp; path = ../src/engine/inputmanager.hpp; sourceTree = SOURCE_ROOT; };
+		31FA47D122BADAE4003A2C5D /* shadermanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shadermanager.cpp; path = ../src/engine/shadermanager.cpp; sourceTree = SOURCE_ROOT; };
+		31FA47D222BADAE4003A2C5D /* shadermanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = shadermanager.hpp; path = ../src/engine/shadermanager.hpp; sourceTree = SOURCE_ROOT; };
+		31FA47D622BADC07003A2C5D /* ishader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ishader.hpp; path = ../src/engine/ishader.hpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,11 +107,16 @@
 				313C666E22AEC3C500EF8A7C /* types.hpp */,
 				313C665F22AEC0D000EF8A7C /* controller.cpp */,
 				313C666022AEC0D000EF8A7C /* controller.hpp */,
-				313C666222AEC0DA00EF8A7C /* object.cpp */,
-				313C666322AEC0DA00EF8A7C /* object.hpp */,
+				313C666322AEC0DA00EF8A7C /* iobject.hpp */,
+				31FA47D622BADC07003A2C5D /* ishader.hpp */,
 				313C666C22AEC16100EF8A7C /* iobjectfactory.hpp */,
+				31181FBA22B9756F00EC5BAC /* itexturemanager.hpp */,
 				316957D422B13ECF001BE627 /* objectmanager.cpp */,
 				316957D522B13ECF001BE627 /* objectmanager.hpp */,
+				31FA47CD22BAD4B8003A2C5D /* inputmanager.cpp */,
+				31FA47CE22BAD4B8003A2C5D /* inputmanager.hpp */,
+				31FA47D122BADAE4003A2C5D /* shadermanager.cpp */,
+				31FA47D222BADAE4003A2C5D /* shadermanager.hpp */,
 				316957D122B13E75001BE627 /* iresourcemanager.cpp */,
 				316957D222B13E75001BE627 /* iresourcemanager.hpp */,
 				313C666522AEC0F000EF8A7C /* animatable.cpp */,
@@ -137,6 +155,8 @@
 				31F1D2AC22AFF37F0023D763 /* factory.hpp */,
 				31F1D2BD22AFF6A20023D763 /* tile.cpp */,
 				31F1D2BE22AFF6A20023D763 /* tile.hpp */,
+				31181FBE22B9762300EC5BAC /* mycontroller.cpp */,
+				31181FBF22B9762300EC5BAC /* mycontroller.hpp */,
 			);
 			name = "example-game";
 			sourceTree = "<group>";
@@ -191,7 +211,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				317BBE3322B9433F005AF45B /* lodepng.hpp in Headers */,
+				31181FBC22B9756F00EC5BAC /* itexturemanager.hpp in Headers */,
 				317BBE2E22B94142005AF45B /* texturemanagergl.hpp in Headers */,
+				31FA47D022BAD4B8003A2C5D /* inputmanager.hpp in Headers */,
+				31FA47D422BADAE4003A2C5D /* shadermanager.hpp in Headers */,
+				31FA47D822BADC07003A2C5D /* ishader.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,9 +313,10 @@
 				317BBE2D22B94142005AF45B /* texturemanagergl.cpp in Sources */,
 				31F1D2B822AFF3B60023D763 /* controller.cpp in Sources */,
 				317BBE3122B94339005AF45B /* lodepng.cpp in Sources */,
-				31F1D2B922AFF3B60023D763 /* object.cpp in Sources */,
 				317BBE3422B944E7005AF45B /* objectmanager.cpp in Sources */,
+				31FA47D322BADAE4003A2C5D /* shadermanager.cpp in Sources */,
 				31F1D2BA22AFF3B60023D763 /* animatable.cpp in Sources */,
+				31FA47CF22BAD4B8003A2C5D /* inputmanager.cpp in Sources */,
 				317BBE3522B944EB005AF45B /* iresourcemanager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31F5073122AE990C003F32CD /* main.m in Sources */,
+				31181FC022B9762300EC5BAC /* mycontroller.cpp in Sources */,
 				316957D022B13BFD001BE627 /* openglview.mm in Sources */,
 				31F5072E22AE990C003F32CD /* AppDelegate.mm in Sources */,
 				31F1D2AD22AFF37F0023D763 /* factory.cpp in Sources */,

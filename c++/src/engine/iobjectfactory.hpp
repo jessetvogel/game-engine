@@ -2,7 +2,7 @@
 #define iobjectfactory_hpp
 
 #include "types.hpp"
-#include "object.hpp"
+#include "iobject.hpp"
 
 namespace Game {
     
@@ -10,7 +10,7 @@ namespace Game {
         
     public:
         
-        virtual Object* create(ObjectData&) = 0;
+        virtual IObject* create(ObjectData&) = 0;
         
     };
     

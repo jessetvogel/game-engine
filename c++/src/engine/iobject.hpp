@@ -1,5 +1,5 @@
-#ifndef object_hpp
-#define object_hpp
+#ifndef iobject_hpp
+#define iobject_hpp
 
 #include "types.hpp"
 
@@ -7,7 +7,7 @@ namespace Game {
     
     class Controller;
     
-    class Object {
+    class IObject {
 
         const std::string id;
         const std::string type;
@@ -18,8 +18,8 @@ namespace Game {
         
     public:
         
-        Object(ObjectData&);
-        virtual ~Object() {};
+        IObject(ObjectData& data) : c(data.c), type(data.type), id(data.id) {}
+        virtual ~IObject() {}
         
         const std::string getId() { return id; }
         const std::string getType() { return type; }

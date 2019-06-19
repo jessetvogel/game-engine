@@ -17,6 +17,23 @@ namespace Game {
         
     } ObjectData;
     
+    typedef struct {
+        std::string vertexShader;
+        std::string fragmentShader;
+    } ShaderData;
+    
+    typedef struct {
+    
+    } RenderData;
+    
+    typedef struct {
+        
+    } KeyEvent;
+    
+    typedef struct {
+        
+    } MouseEvent;
+    
     typedef int ResId;
     typedef int RefCount;
     

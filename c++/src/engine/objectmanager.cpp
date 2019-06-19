@@ -73,7 +73,7 @@ bool ObjectManager::create(ObjectData& data) {
     }
     
     // Try to produce an object
-    Object* obj = objectFactory->create(data);
+    IObject* obj = objectFactory->create(data);
     if(obj == nullptr) {
         error("failed to create object of type " + data.type);
         return false;
@@ -84,7 +84,7 @@ bool ObjectManager::create(ObjectData& data) {
     return true;
 }
 
-bool ObjectManager::destroy(Object* obj) {
+bool ObjectManager::destroy(IObject* obj) {
     // Must be non-null
     if(obj == nullptr) {
         error("tried to destroy nullptr");
@@ -97,14 +97,14 @@ bool ObjectManager::destroy(Object* obj) {
     return true;
 }
 
-Object* ObjectManager::getObjectById(string id) {
+IObject* ObjectManager::getObjectById(string id) {
     auto it = objectsById.find(id);
     if(it == objectsById.end())
         return nullptr;
     return it->second;
 }
 
-vector<Object*> ObjectManager::getObjectsByType(string type) {
+vector<IObject*> ObjectManager::getObjectsByType(string type) {
     auto it = objects.find(type);
     if(it == objects.end())
         return {};

@@ -4,8 +4,9 @@ using namespace std;
 using namespace Game;
 
 void Controller::update(double dt) {
-    // Manage objects
+    // Manage objects & input
     manageObjects();
+    manageInput();
     
     // Update all objects
     for(auto& entry : objects) {

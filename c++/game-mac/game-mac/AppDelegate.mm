@@ -1,6 +1,6 @@
 #import "AppDelegate.h"
 #import "openglview.hpp"
-#include "controller.hpp"
+#include "mycontroller.hpp"
 #include "factory.hpp"
 
 @interface AppDelegate ()
@@ -12,7 +12,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification*) aNotification {
     // Insert code here to initialize your application
-    Game::Controller* controller = new Game::Controller();
+    Example::MyController* controller = new Example::MyController();
     
     Example::Factory* factory = new Example::Factory();
     controller->setObjectFactory(factory);
