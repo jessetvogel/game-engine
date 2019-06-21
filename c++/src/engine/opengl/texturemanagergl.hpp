@@ -2,6 +2,7 @@
 #define texturemanagergl_hpp
 
 #include "itexturemanager.hpp"
+#include "opengl.hpp"
 
 namespace Game {
 

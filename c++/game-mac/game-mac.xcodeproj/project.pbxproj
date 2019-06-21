@@ -9,7 +9,13 @@
 /* Begin PBXBuildFile section */
 		31181FBC22B9756F00EC5BAC /* itexturemanager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 31181FBA22B9756F00EC5BAC /* itexturemanager.hpp */; };
 		31181FC022B9762300EC5BAC /* mycontroller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31181FBE22B9762300EC5BAC /* mycontroller.cpp */; };
-		316957D022B13BFD001BE627 /* openglview.mm in Sources */ = {isa = PBXBuildFile; fileRef = 316957CF22B13BFD001BE627 /* openglview.mm */; };
+		3150BDC522BD3F9D00E8FF0E /* timeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3150BDC322BD3F9D00E8FF0E /* timeline.cpp */; };
+		3150BDC622BD3F9D00E8FF0E /* timeline.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3150BDC422BD3F9D00E8FF0E /* timeline.hpp */; };
+		3150BDCA22BD482300E8FF0E /* shadergl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3150BDC822BD482300E8FF0E /* shadergl.cpp */; };
+		3150BDCB22BD482300E8FF0E /* shadergl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3150BDC922BD482300E8FF0E /* shadergl.hpp */; };
+		3150BDCF22BD4E1000E8FF0E /* ifontmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3150BDCD22BD4E1000E8FF0E /* ifontmanager.cpp */; };
+		3150BDD022BD4E1000E8FF0E /* ifontmanager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3150BDCE22BD4E1000E8FF0E /* ifontmanager.hpp */; };
+		316957D022B13BFD001BE627 /* openglview-mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = 316957CF22B13BFD001BE627 /* openglview-mac.mm */; };
 		317BBE2D22B94142005AF45B /* texturemanagergl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 317BBE2B22B94142005AF45B /* texturemanagergl.cpp */; };
 		317BBE2E22B94142005AF45B /* texturemanagergl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 317BBE2C22B94142005AF45B /* texturemanagergl.hpp */; };
 		317BBE3122B94339005AF45B /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 317BBE3022B94339005AF45B /* lodepng.cpp */; };
@@ -53,8 +59,15 @@
 		313C666622AEC0F000EF8A7C /* animatable.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = animatable.hpp; path = ../src/engine/animatable.hpp; sourceTree = SOURCE_ROOT; };
 		313C666C22AEC16100EF8A7C /* iobjectfactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iobjectfactory.hpp; path = ../src/engine/iobjectfactory.hpp; sourceTree = SOURCE_ROOT; };
 		313C666E22AEC3C500EF8A7C /* types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = types.hpp; path = ../src/engine/types.hpp; sourceTree = SOURCE_ROOT; };
-		316957CE22B13BFD001BE627 /* openglview.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = openglview.hpp; path = ../src/engine/mac/openglview.hpp; sourceTree = SOURCE_ROOT; };
-		316957CF22B13BFD001BE627 /* openglview.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = openglview.mm; path = ../src/engine/mac/openglview.mm; sourceTree = SOURCE_ROOT; };
+		3150BDC322BD3F9D00E8FF0E /* timeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = timeline.cpp; path = "../src/engine-util/timeline.cpp"; sourceTree = SOURCE_ROOT; };
+		3150BDC422BD3F9D00E8FF0E /* timeline.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = timeline.hpp; path = "../src/engine-util/timeline.hpp"; sourceTree = SOURCE_ROOT; };
+		3150BDC822BD482300E8FF0E /* shadergl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shadergl.cpp; path = ../src/engine/opengl/shadergl.cpp; sourceTree = SOURCE_ROOT; };
+		3150BDC922BD482300E8FF0E /* shadergl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = shadergl.hpp; path = ../src/engine/opengl/shadergl.hpp; sourceTree = SOURCE_ROOT; };
+		3150BDCC22BD4C9600E8FF0E /* opengl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = opengl.hpp; path = ../src/engine/opengl/opengl.hpp; sourceTree = SOURCE_ROOT; };
+		3150BDCD22BD4E1000E8FF0E /* ifontmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ifontmanager.cpp; path = ../src/engine/ifontmanager.cpp; sourceTree = SOURCE_ROOT; };
+		3150BDCE22BD4E1000E8FF0E /* ifontmanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ifontmanager.hpp; path = ../src/engine/ifontmanager.hpp; sourceTree = SOURCE_ROOT; };
+		316957CE22B13BFD001BE627 /* openglview-mac.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = "openglview-mac.hpp"; path = "../src/engine/opengl/openglview-mac.hpp"; sourceTree = SOURCE_ROOT; };
+		316957CF22B13BFD001BE627 /* openglview-mac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "openglview-mac.mm"; path = "../src/engine/opengl/openglview-mac.mm"; sourceTree = SOURCE_ROOT; };
 		316957D122B13E75001BE627 /* iresourcemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iresourcemanager.cpp; path = ../src/engine/iresourcemanager.cpp; sourceTree = SOURCE_ROOT; };
 		316957D222B13E75001BE627 /* iresourcemanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iresourcemanager.hpp; path = ../src/engine/iresourcemanager.hpp; sourceTree = SOURCE_ROOT; };
 		316957D422B13ECF001BE627 /* objectmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = objectmanager.cpp; path = ../src/engine/objectmanager.cpp; sourceTree = SOURCE_ROOT; };
@@ -119,20 +132,34 @@
 				31FA47D222BADAE4003A2C5D /* shadermanager.hpp */,
 				316957D122B13E75001BE627 /* iresourcemanager.cpp */,
 				316957D222B13E75001BE627 /* iresourcemanager.hpp */,
-				313C666522AEC0F000EF8A7C /* animatable.cpp */,
-				313C666622AEC0F000EF8A7C /* animatable.hpp */,
-				316957CE22B13BFD001BE627 /* openglview.hpp */,
-				316957CF22B13BFD001BE627 /* openglview.mm */,
+				3150BDCD22BD4E1000E8FF0E /* ifontmanager.cpp */,
+				3150BDCE22BD4E1000E8FF0E /* ifontmanager.hpp */,
 			);
 			name = engine;
 			path = game;
 			sourceTree = "<group>";
 		};
+		3150BDC722BD3FA000E8FF0E /* engine-util */ = {
+			isa = PBXGroup;
+			children = (
+				3150BDC322BD3F9D00E8FF0E /* timeline.cpp */,
+				3150BDC422BD3F9D00E8FF0E /* timeline.hpp */,
+				313C666522AEC0F000EF8A7C /* animatable.cpp */,
+				313C666622AEC0F000EF8A7C /* animatable.hpp */,
+			);
+			name = "engine-util";
+			sourceTree = "<group>";
+		};
 		317BBE2A22B9410C005AF45B /* opengl */ = {
 			isa = PBXGroup;
 			children = (
+				3150BDCC22BD4C9600E8FF0E /* opengl.hpp */,
+				3150BDC822BD482300E8FF0E /* shadergl.cpp */,
+				3150BDC922BD482300E8FF0E /* shadergl.hpp */,
 				317BBE2B22B94142005AF45B /* texturemanagergl.cpp */,
 				317BBE2C22B94142005AF45B /* texturemanagergl.hpp */,
+				316957CE22B13BFD001BE627 /* openglview-mac.hpp */,
+				316957CF22B13BFD001BE627 /* openglview-mac.mm */,
 			);
 			name = opengl;
 			path = game;
@@ -164,6 +191,7 @@
 		31F5072022AE990C003F32CD = {
 			isa = PBXGroup;
 			children = (
+				3150BDC722BD3FA000E8FF0E /* engine-util */,
 				313C665E22AEC0A900EF8A7C /* engine */,
 				317BBE2A22B9410C005AF45B /* opengl */,
 				317BBE2F22B9432E005AF45B /* lodepng */,
@@ -212,7 +240,10 @@
 			files = (
 				317BBE3322B9433F005AF45B /* lodepng.hpp in Headers */,
 				31181FBC22B9756F00EC5BAC /* itexturemanager.hpp in Headers */,
+				3150BDD022BD4E1000E8FF0E /* ifontmanager.hpp in Headers */,
+				3150BDC622BD3F9D00E8FF0E /* timeline.hpp in Headers */,
 				317BBE2E22B94142005AF45B /* texturemanagergl.hpp in Headers */,
+				3150BDCB22BD482300E8FF0E /* shadergl.hpp in Headers */,
 				31FA47D022BAD4B8003A2C5D /* inputmanager.hpp in Headers */,
 				31FA47D422BADAE4003A2C5D /* shadermanager.hpp in Headers */,
 				31FA47D822BADC07003A2C5D /* ishader.hpp in Headers */,
@@ -311,6 +342,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				317BBE2D22B94142005AF45B /* texturemanagergl.cpp in Sources */,
+				3150BDCA22BD482300E8FF0E /* shadergl.cpp in Sources */,
+				3150BDCF22BD4E1000E8FF0E /* ifontmanager.cpp in Sources */,
+				3150BDC522BD3F9D00E8FF0E /* timeline.cpp in Sources */,
 				31F1D2B822AFF3B60023D763 /* controller.cpp in Sources */,
 				317BBE3122B94339005AF45B /* lodepng.cpp in Sources */,
 				317BBE3422B944E7005AF45B /* objectmanager.cpp in Sources */,
@@ -327,7 +361,7 @@
 			files = (
 				31F5073122AE990C003F32CD /* main.m in Sources */,
 				31181FC022B9762300EC5BAC /* mycontroller.cpp in Sources */,
-				316957D022B13BFD001BE627 /* openglview.mm in Sources */,
+				316957D022B13BFD001BE627 /* openglview-mac.mm in Sources */,
 				31F5072E22AE990C003F32CD /* AppDelegate.mm in Sources */,
 				31F1D2AD22AFF37F0023D763 /* factory.cpp in Sources */,
 				31F1D2BF22AFF6A20023D763 /* tile.cpp in Sources */,

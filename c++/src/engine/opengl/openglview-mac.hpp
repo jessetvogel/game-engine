@@ -1,8 +1,8 @@
-#ifndef openglview_h
-#define openglview_h
+#ifndef openglview_mac_h
+#define openglview_mac_h
 
 #import <Cocoa/Cocoa.h>
-#import <OpenGL/gl.h>
+#include "opengl.hpp"
 
 namespace Game {
     class Controller;

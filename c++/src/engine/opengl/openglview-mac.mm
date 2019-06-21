@@ -1,4 +1,4 @@
-#import "openglview.hpp"
+#import "openglview-mac.hpp"
 #include "controller.hpp"
 
 @implementation OpenGLView
