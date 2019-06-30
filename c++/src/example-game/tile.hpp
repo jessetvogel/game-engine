@@ -1,11 +1,14 @@
 #ifndef tile_hpp
 #define tile_hpp
 
-#include "object.hpp"
+#include "iobject.hpp"
+#include "iaudiomanager.hpp"
 
 namespace Example {
 
-    class Tile : public Game::Object {
+    class Tile : public Game::IObject {
+        
+        Game::Audio* gun;
         
     public:
         

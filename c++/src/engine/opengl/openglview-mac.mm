@@ -1,6 +1,8 @@
 #import "openglview-mac.hpp"
 #include "controller.hpp"
 
+using namespace Game;
+
 @implementation OpenGLView
 
 - (id) initWithFrame:(NSRect) rect {
@@ -30,6 +32,20 @@
     }
     
     glFlush();
+    
+    DEBUG_OPENGL
+}
+
+- (void) startTimer {
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.017 target:self selector:@selector(onTimer:) userInfo:nil repeats:YES];
+}
+
+- (void) stopTimer {
+    [timer invalidate];
+}
+
+- (void) onTimer:(NSTimer*) timer {
+    [self setNeedsDisplay:YES];
 }
 
 - (void) viewWillMoveToWindow:(NSWindow*) window {
@@ -43,19 +59,35 @@
 }
 
 - (void) mouseDown:(NSEvent*) event {
-    
+    controller->addMouseEvent({
+        Down,
+        (MouseButton) [event buttonNumber],
+        { (float) [event absoluteX], (float) [event absoluteY] }
+    });
 }
 
 - (void) mouseUp:(NSEvent*) event {
-    
+    controller->addMouseEvent({
+        Up,
+        (MouseButton) [event buttonNumber],
+        { (float) [event absoluteX], (float) [event absoluteY] }
+    });
 }
 
 - (void) rightMouseDown:(NSEvent*) event {
-    
+    controller->addMouseEvent({
+        Down,
+        (MouseButton) [event buttonNumber],
+        { (float) [event absoluteX], (float) [event absoluteY] }
+    });
 }
 
 - (void) rightMouseUp:(NSEvent*) event {
-    
+    controller->addMouseEvent({
+        Up,
+        (MouseButton) [event buttonNumber],
+        { (float) [event absoluteX], (float) [event absoluteY] }
+    });
 }
 
 - (void) mouseMoved:(NSEvent*) event {
@@ -71,14 +103,20 @@
 }
 
 - (void) keyDown:(NSEvent*) event {
-
+    controller->addKeyEvent({
+        Down,
+        (KeyCode) [event keyCode]
+    });
 }
 
 - (void) keyUp:(NSEvent*) event {
-
+    controller->addKeyEvent({
+        Up,
+        (KeyCode) [event keyCode]
+    });
 }
 
-- (void) setController:(Game::Controller*) c {
+- (void) setController:(Controller*) c {
     controller = c;
 }
 

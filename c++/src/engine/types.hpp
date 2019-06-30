@@ -4,23 +4,17 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <glm/glm.hpp>
 
 namespace Game {
 
     class Controller;
     
     // Vector types
-    typedef struct {
-        float x, y;
-    } Vec2;
-    
-    typedef struct {
-        float x, y, z;
-    } Vec3;
-    
-    typedef struct {
-        float x, y, z, w;
-    } Vec4;
+    typedef glm::vec2 Vec2;
+    typedef glm::vec3 Vec3;
+    typedef glm::vec4 Vec4;
+    typedef glm::mat4 Mat4;
     
     // Data types
     typedef struct {
@@ -35,10 +29,16 @@ namespace Game {
         std::string vertexShader;
         std::string fragmentShader;
     } ShaderData;
-    
+        
     typedef struct {
         
     } RenderData;
+    
+    typedef struct {
+        std::string texture;
+        float x, y, width, height;
+        int frames;
+    } SpriteData;
     
     // Input types
     enum KeyCode {
@@ -64,13 +64,34 @@ namespace Game {
         Action action;
         MouseButton button;
         Vec2 position;
-        
     } MouseEvent;
     
     // Other
     typedef int ResId;
+    typedef int TextureId;
     typedef int RefCount;
     
+    // [...] types
+    typedef struct {
+        TextureId texture;
+        float x, y, width, height;
+        int frames;
+    } Sprite;
+    
+    
+    
+    
+    
+    
+    class ReferenceAble {
+        
+        int ref = 1;
+        
+    public:
+        
+        void retain() { ++ref; }
+        void release() { if(--ref <= 0) delete this; }
+    };
 }
 
 #endif

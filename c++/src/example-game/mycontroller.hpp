@@ -3,10 +3,11 @@
 
 #include "controller.hpp"
 #include "texturemanagergl.hpp"
+#include "audiomanagerpm.hpp"
 
 namespace Example {
     
-    class MyController : public Game::Controller, public Game::TextureManagerGL {
+    class MyController : public Game::Controller, public Game::TextureManagerGL, public Game::AudioManagerPM {
     
     };
     

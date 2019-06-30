@@ -1,15 +1,51 @@
 #include "shadergl.hpp"
+#include <fstream>
 #include <iostream>
 
 using namespace std;
 using namespace Game;
 
-ShaderGL::ShaderGL(ShaderData& data) {
+ShaderGL::ShaderGL(ShaderData data) {
+    // Open source files
+    std::ifstream vertexFile(data.vertexShader, std::ios::binary | std::ios::ate);
+    if(vertexFile.fail()) {
+        std::cout << "Failed to open vertex shader file: " << data.vertexShader << std::endl;
+        return;
+    }
+    
+    std::ifstream fragmentFile(data.fragmentShader, std::ios::binary | std::ios::ate);
+    if(fragmentFile.fail()) {
+        std::cout << "Failed to open fragment shader file: " << data.fragmentShader << std::endl;
+        return;
+    }
+    
+    // Read files into data buffers
+    size_t size = vertexFile.tellg();
+    vertexFile.seekg(0, std::ios::beg);
+    char vertexData[size + 1];
+    if(!vertexFile.read(vertexData, size)) {
+        std::cout << "Failed to read vertex shader file: " << data.vertexShader << std::endl;
+        return;
+    }
+    vertexData[size] = '\0';
+    
+    size = fragmentFile.tellg();
+    fragmentFile.seekg(0, std::ios::beg);
+    char fragmentData[size + 1];
+    if(!fragmentFile.read(fragmentData, size)) {
+        std::cout << "Failed to read fragment shader file: " << data.fragmentShader << std::endl;
+        return;
+    }
+    fragmentData[size] = '\0';
+    
     // Create a program from data data buffers
-    program = createProgram(data.vertexShader.c_str(), data.fragmentShader.c_str());
+    program = createProgram(vertexData, fragmentData);
     
     // Find uniforms and attributes
     findUniformsAndAttributes();
+    
+    // Initialize with some data (length 3)
+    setVertexDataLength(3);
 }
 
 ShaderGL::~ShaderGL() {
@@ -64,7 +100,7 @@ GLuint ShaderGL::createProgram(const char* srcVertex, const char* srcFragment) {
 
 void ShaderGL::findUniformsAndAttributes() {
     // Retrieve uniform information
-    GLint count, maxLength;
+    GLint count, maxLength, currentTexId = 0;
     glGetProgramiv(program, GL_ACTIVE_UNIFORMS, &count);
     glGetProgramiv(program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxLength);
     for(GLint i = 0;i < count; ++i) {
@@ -78,8 +114,9 @@ void ShaderGL::findUniformsAndAttributes() {
         
         // Add uniform to list
         uniforms.push_back({
-            name,
-            location
+            uniformName,
+            location,
+            (type == GL_SAMPLER_2D) ? currentTexId++ : 0
         });
     }
     
@@ -121,13 +158,9 @@ void ShaderGL::findUniformsAndAttributes() {
             size,
             VBO
         });
-
     }
     
     glBindVertexArray(0);
-    
-    // Initialize with some data (length 1)
-    setVertexDataLength(1);
 }
 
 void ShaderGL::render() {
@@ -147,7 +180,10 @@ void ShaderGL::setVertexDataLength(size_t length) {
     for(auto& a : attributes) {
         glBindBuffer(GL_ARRAY_BUFFER, a.VBO);
         glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * a.size * vertexDataLength, nullptr, GL_DYNAMIC_DRAW); // TODO: GL_DYNAMIC_DRAW ???
+        glEnableVertexAttribArray(a.location);
+        glVertexAttribPointer(a.location, a.size, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * a.size, 0);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
+
     }
     glBindVertexArray(0);
 }
@@ -196,6 +232,13 @@ void ShaderGL::setUniform(string name, Vec4 value) {
         glUniform4f(u->location, value.x, value.y, value.z, value.w);
 }
 
+void ShaderGL::setUniform(string name, Mat4& value) {
+    glUseProgram(program);
+    Uniform* u = getUniform(name);
+    if(u != nullptr)
+        glUniformMatrix4fv(u->location, 1, GL_FALSE, &value[0][0]);
+}
+
 void ShaderGL::setAttribute(string name, float* values, size_t n, size_t offset) {
     Attribute* a = getAttribute(name);
     if(a != nullptr) {
@@ -204,8 +247,18 @@ void ShaderGL::setAttribute(string name, float* values, size_t n, size_t offset)
         
         glBindVertexArray(VAO);
         glBindBuffer(GL_ARRAY_BUFFER, a->VBO);
-        glBufferSubData(GL_ARRAY_BUFFER, offset, sizeof(GLfloat) * n, values);
+        glBufferSubData(GL_ARRAY_BUFFER, offset, sizeof(GLfloat) * a->size * n, values);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
         glBindVertexArray(0);
+    }
+}
+
+void ShaderGL::setTexture(string name, TextureId textureId) {
+    glUseProgram(program);
+    Uniform* u = getUniform(name);
+    if(u != nullptr) {
+        glUniform1i(u->location, u->texId);
+        glActiveTexture(GL_TEXTURE0 + u->texId);
+        glBindTexture(GL_TEXTURE_2D, textureId);
     }
 }

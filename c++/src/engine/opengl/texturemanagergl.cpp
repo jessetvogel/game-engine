@@ -6,7 +6,7 @@
 using namespace std;
 using namespace Game;
 
-ResId TextureManagerGL::loadResource(string path) {
+TextureId TextureManagerGL::loadTexture(string path) {
     // Create texture
     GLuint textureId;
     glGenTextures(1, &textureId);
@@ -35,7 +35,7 @@ ResId TextureManagerGL::loadResource(string path) {
     return textureId;
 }
 
-void TextureManagerGL::freeResource(ResId id) {
+void TextureManagerGL::freeTexture(TextureId id) {
     // Delete texture
     GLuint textureId = id;
     glDeleteTextures(1, &textureId);

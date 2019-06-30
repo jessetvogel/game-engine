@@ -8,6 +8,7 @@ namespace Game {
     
     class ObjectManager {
         
+        Controller* const controller;
         IObjectFactory* objectFactory = nullptr;
         
         std::unordered_map<std::string, IObject*> objectsById;
@@ -23,6 +24,8 @@ namespace Game {
         void manageObjects();
         
     public:
+        
+        ObjectManager(Controller* c) : controller(c) {}
         
         void setObjectFactory(IObjectFactory*);
         bool goToScene(std::string);

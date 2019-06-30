@@ -11,7 +11,7 @@ namespace Game {
 @interface OpenGLView : NSOpenGLView {
     Game::Controller* controller;
     NSPoint mouse;
-
+    NSTimer* timer;
 }
 
 - (id) initWithFrame:(NSRect) rect;
@@ -19,6 +19,9 @@ namespace Game {
 - (void) drawRect:(NSRect) bounds;
 - (void) viewWillMoveToWindow:(NSWindow*) window;
 - (BOOL) acceptsFirstResponder;
+- (void) onTimer:(NSTimer*) timer;
+- (void) startTimer;
+- (void) stopTimer;
 
 - (void) mouseDown:(NSEvent*) event;
 - (void) mouseUp:(NSEvent*) event;

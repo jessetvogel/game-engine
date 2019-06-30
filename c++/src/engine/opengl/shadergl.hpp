@@ -14,6 +14,7 @@ namespace Game {
         struct Uniform {
             std::string name;
             GLint location;
+            GLint texId;
         };
         
         struct Attribute {
@@ -36,7 +37,7 @@ namespace Game {
                 
     public:
         
-        ShaderGL(ShaderData&);
+        ShaderGL(ShaderData);
         ~ShaderGL();
     
         void render();
@@ -47,8 +48,11 @@ namespace Game {
         void setUniform(std::string, Vec2);
         void setUniform(std::string, Vec3);
         void setUniform(std::string, Vec4);
+        void setUniform(std::string, Mat4&);
         
         void setAttribute(std::string, float*, size_t n = 0, size_t offset = 0);
+        
+        void setTexture(std::string, TextureId);
         
     };
     

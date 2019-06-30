@@ -5,15 +5,26 @@
 
 namespace Game {
     
-    class ITextureManager : public IResourceManager {
+    class ITextureManager {
         
-        virtual ResId loadResource(std::string) = 0;
-        virtual void freeResource(ResId) = 0;
+        struct TextureData {
+            TextureId id;
+            int refCount;
+        };
+        
+        std::unordered_map<std::string, std::string> definitions;
+        std::unordered_map<std::string, TextureData> textureData;
+        
+        virtual TextureId loadTexture(std::string) = 0;
+        virtual void freeTexture(ResId) = 0;
         
     public:
         
-        ResId getTexture(std::string name) { return get(name); }
-        void releaseTexture(ResId id) { return release(id); }
+        void manageTextures();
+        bool defineTexture(std::string, std::string);
+        
+        TextureId getTexture(std::string);
+        void releaseTexture(TextureId);
         
     };
     

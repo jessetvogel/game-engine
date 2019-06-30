@@ -160,7 +160,7 @@ bool ObjectManager::loadScene(string path) {
         
         // Create new object from data
         ObjectData data = {
-            (Controller*) this,
+            controller,
             type,
             id,
             params

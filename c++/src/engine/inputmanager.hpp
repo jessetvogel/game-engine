@@ -3,6 +3,7 @@
 
 #include "types.hpp"
 #include <mutex>
+#include <iostream>
 
 namespace Game {
         
@@ -25,8 +26,8 @@ namespace Game {
         void addKeyEvent(KeyEvent);
         void addMouseEvent(MouseEvent);
         
-        const std::vector<KeyEvent>& getKeyEvents() { return keyEvents; }
-        const std::vector<MouseEvent>& getMouseEvents() { return mouseEvents; }
+        std::vector<KeyEvent>& getKeyEvents() { return keyEvents; }
+        std::vector<MouseEvent>& getMouseEvents() { return mouseEvents; }
 
         bool isKeyDown(KeyCode key) { return keyDown[key]; }
         bool isMouseDown(MouseButton button) { return mouseDown[button]; }

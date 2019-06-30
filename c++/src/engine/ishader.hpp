@@ -26,7 +26,9 @@ namespace Game {
         virtual void setUniform(std::string, Vec3) = 0;
         virtual void setUniform(std::string, Vec4) = 0;
         
-        virtual void setAttribute(std::string, float*, size_t) = 0;
+        virtual void setAttribute(std::string, float*, size_t, size_t) = 0;
+        
+        virtual void setTexture(std::string, TextureId) = 0;
         
     };
 }

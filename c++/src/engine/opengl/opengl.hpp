@@ -13,4 +13,7 @@
 #define glDeleteVertexArrays glDeleteVertexArraysAPPLE
 #endif
 
+// Debug
+#define DEBUG_OPENGL {GLenum error;while((error=glGetError())!=GL_NO_ERROR)std::cout<<"[OPENGL ERROR "<<std::to_string(error)<<" AT " __FILE__ ":"<<__LINE__<<"]"<<std::endl;}
+
 #endif

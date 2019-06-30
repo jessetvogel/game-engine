@@ -9,7 +9,7 @@ namespace Example {
     
     public:
         
-        Game::Object* create(Game::ObjectData&);
+        Game::IObject* create(Game::ObjectData&);
         
     };
     
