@@ -14,6 +14,8 @@
 		314022BD22C77716002820F5 /* wavefile.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 314022BB22C77716002820F5 /* wavefile.hpp */; };
 		314022C022C784B6002820F5 /* libportaudio.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 314022BE22C78498002820F5 /* libportaudio.2.dylib */; };
 		314022C322C784CE002820F5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314022C222C784CE002820F5 /* OpenGL.framework */; };
+		3150B4F822C927C6003D2576 /* fontmanagerft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3150B4F622C927C6003D2576 /* fontmanagerft.cpp */; };
+		3150B4F922C927C6003D2576 /* fontmanagerft.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3150B4F722C927C6003D2576 /* fontmanagerft.hpp */; };
 		3150BDC522BD3F9D00E8FF0E /* timeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3150BDC322BD3F9D00E8FF0E /* timeline.cpp */; };
 		3150BDC622BD3F9D00E8FF0E /* timeline.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3150BDC422BD3F9D00E8FF0E /* timeline.hpp */; };
 		3150BDCA22BD482300E8FF0E /* shadergl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3150BDC822BD482300E8FF0E /* shadergl.cpp */; };
@@ -28,10 +30,9 @@
 		317BBE3122B94339005AF45B /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 317BBE3022B94339005AF45B /* lodepng.cpp */; };
 		317BBE3322B9433F005AF45B /* lodepng.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 317BBE3222B9433F005AF45B /* lodepng.hpp */; };
 		317BBE3422B944E7005AF45B /* objectmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316957D422B13ECF001BE627 /* objectmanager.cpp */; };
-		317BBE3522B944EB005AF45B /* iresourcemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316957D122B13E75001BE627 /* iresourcemanager.cpp */; };
 		318096F422C1273B0092B816 /* spritemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 318096F222C1273B0092B816 /* spritemanager.cpp */; };
 		318096F522C1273B0092B816 /* spritemanager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 318096F322C1273B0092B816 /* spritemanager.hpp */; };
-		31F1D2AD22AFF37F0023D763 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D2AB22AFF37F0023D763 /* factory.cpp */; };
+		31A6369522CA798500FEC6AC /* libfreetype.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A6369422CA798500FEC6AC /* libfreetype.6.dylib */; };
 		31F1D2B822AFF3B60023D763 /* controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C665F22AEC0D000EF8A7C /* controller.cpp */; };
 		31F1D2BA22AFF3B60023D763 /* animatable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313C666522AEC0F000EF8A7C /* animatable.cpp */; };
 		31F1D2BC22AFF3F10023D763 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31F1D2B222AFF3950023D763 /* libengine.a */; };
@@ -67,14 +68,15 @@
 		313C665F22AEC0D000EF8A7C /* controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = controller.cpp; path = ../src/engine/controller.cpp; sourceTree = SOURCE_ROOT; };
 		313C666022AEC0D000EF8A7C /* controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = controller.hpp; path = ../src/engine/controller.hpp; sourceTree = SOURCE_ROOT; };
 		313C666322AEC0DA00EF8A7C /* iobject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iobject.hpp; path = ../src/engine/iobject.hpp; sourceTree = SOURCE_ROOT; };
-		313C666522AEC0F000EF8A7C /* animatable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = animatable.cpp; path = ../src/engine/animatable.cpp; sourceTree = SOURCE_ROOT; };
-		313C666622AEC0F000EF8A7C /* animatable.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = animatable.hpp; path = ../src/engine/animatable.hpp; sourceTree = SOURCE_ROOT; };
-		313C666C22AEC16100EF8A7C /* iobjectfactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iobjectfactory.hpp; path = ../src/engine/iobjectfactory.hpp; sourceTree = SOURCE_ROOT; };
+		313C666522AEC0F000EF8A7C /* animatable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = animatable.cpp; path = "../src/engine-util/animatable.cpp"; sourceTree = SOURCE_ROOT; };
+		313C666622AEC0F000EF8A7C /* animatable.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = animatable.hpp; path = "../src/engine-util/animatable.hpp"; sourceTree = SOURCE_ROOT; };
 		313C666E22AEC3C500EF8A7C /* types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = types.hpp; path = ../src/engine/types.hpp; sourceTree = SOURCE_ROOT; };
 		314022BA22C77716002820F5 /* wavefile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wavefile.cpp; path = ../src/engine/wavefile.cpp; sourceTree = SOURCE_ROOT; };
 		314022BB22C77716002820F5 /* wavefile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = wavefile.hpp; path = ../src/engine/wavefile.hpp; sourceTree = SOURCE_ROOT; };
 		314022BE22C78498002820F5 /* libportaudio.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libportaudio.2.dylib; path = ../lib/portaudio/libportaudio.2.dylib; sourceTree = "<group>"; };
 		314022C222C784CE002820F5 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		3150B4F622C927C6003D2576 /* fontmanagerft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fontmanagerft.cpp; path = ../src/engine/freetype/fontmanagerft.cpp; sourceTree = "<group>"; };
+		3150B4F722C927C6003D2576 /* fontmanagerft.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = fontmanagerft.hpp; path = ../src/engine/freetype/fontmanagerft.hpp; sourceTree = "<group>"; };
 		3150BDC322BD3F9D00E8FF0E /* timeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = timeline.cpp; path = "../src/engine-util/timeline.cpp"; sourceTree = SOURCE_ROOT; };
 		3150BDC422BD3F9D00E8FF0E /* timeline.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = timeline.hpp; path = "../src/engine-util/timeline.hpp"; sourceTree = SOURCE_ROOT; };
 		3150BDC822BD482300E8FF0E /* shadergl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shadergl.cpp; path = ../src/engine/opengl/shadergl.cpp; sourceTree = SOURCE_ROOT; };
@@ -84,8 +86,6 @@
 		3150BDCE22BD4E1000E8FF0E /* ifontmanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ifontmanager.hpp; path = ../src/engine/ifontmanager.hpp; sourceTree = SOURCE_ROOT; };
 		316957CE22B13BFD001BE627 /* openglview-mac.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = "openglview-mac.hpp"; path = "../src/engine/opengl/openglview-mac.hpp"; sourceTree = SOURCE_ROOT; };
 		316957CF22B13BFD001BE627 /* openglview-mac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "openglview-mac.mm"; path = "../src/engine/opengl/openglview-mac.mm"; sourceTree = SOURCE_ROOT; };
-		316957D122B13E75001BE627 /* iresourcemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iresourcemanager.cpp; path = ../src/engine/iresourcemanager.cpp; sourceTree = SOURCE_ROOT; };
-		316957D222B13E75001BE627 /* iresourcemanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iresourcemanager.hpp; path = ../src/engine/iresourcemanager.hpp; sourceTree = SOURCE_ROOT; };
 		316957D422B13ECF001BE627 /* objectmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = objectmanager.cpp; path = ../src/engine/objectmanager.cpp; sourceTree = SOURCE_ROOT; };
 		316957D522B13ECF001BE627 /* objectmanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = objectmanager.hpp; path = ../src/engine/objectmanager.hpp; sourceTree = SOURCE_ROOT; };
 		316D472322C564CC00012B52 /* audiomanagerpm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiomanagerpm.cpp; path = ../src/engine/portaudio/audiomanagerpm.cpp; sourceTree = "<group>"; };
@@ -96,8 +96,8 @@
 		317BBE3222B9433F005AF45B /* lodepng.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = lodepng.hpp; path = ../lib/lodepng/lodepng.hpp; sourceTree = SOURCE_ROOT; };
 		318096F222C1273B0092B816 /* spritemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = spritemanager.cpp; path = ../src/engine/spritemanager.cpp; sourceTree = SOURCE_ROOT; };
 		318096F322C1273B0092B816 /* spritemanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = spritemanager.hpp; path = ../src/engine/spritemanager.hpp; sourceTree = SOURCE_ROOT; };
-		31F1D2AB22AFF37F0023D763 /* factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = factory.cpp; path = "../src/example-game/factory.cpp"; sourceTree = "<group>"; };
-		31F1D2AC22AFF37F0023D763 /* factory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = factory.hpp; path = "../src/example-game/factory.hpp"; sourceTree = "<group>"; };
+		31A6369222CA78FA00FEC6AC /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfreetype.a; path = ../lib/freetype2/libfreetype.a; sourceTree = "<group>"; };
+		31A6369422CA798500FEC6AC /* libfreetype.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.6.dylib; path = ../lib/freetype2/libfreetype.6.dylib; sourceTree = "<group>"; };
 		31F1D2B222AFF3950023D763 /* libengine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libengine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		31F1D2BD22AFF6A20023D763 /* tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tile.cpp; path = "../src/example-game/tile.cpp"; sourceTree = "<group>"; };
 		31F1D2BE22AFF6A20023D763 /* tile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = tile.hpp; path = "../src/example-game/tile.hpp"; sourceTree = "<group>"; };
@@ -130,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				314022C322C784CE002820F5 /* OpenGL.framework in Frameworks */,
+				31A6369522CA798500FEC6AC /* libfreetype.6.dylib in Frameworks */,
 				314022C022C784B6002820F5 /* libportaudio.2.dylib in Frameworks */,
 				31F1D2BC22AFF3F10023D763 /* libengine.a in Frameworks */,
 			);
@@ -146,7 +147,6 @@
 				313C666022AEC0D000EF8A7C /* controller.hpp */,
 				313C666322AEC0DA00EF8A7C /* iobject.hpp */,
 				31FA47D622BADC07003A2C5D /* ishader.hpp */,
-				313C666C22AEC16100EF8A7C /* iobjectfactory.hpp */,
 				3117D7BC22C7A0D20046DD3C /* itexturemanager.cpp */,
 				31181FBA22B9756F00EC5BAC /* itexturemanager.hpp */,
 				316957D422B13ECF001BE627 /* objectmanager.cpp */,
@@ -155,8 +155,6 @@
 				31FA47CE22BAD4B8003A2C5D /* inputmanager.hpp */,
 				31FA47D122BADAE4003A2C5D /* shadermanager.cpp */,
 				31FA47D222BADAE4003A2C5D /* shadermanager.hpp */,
-				316957D122B13E75001BE627 /* iresourcemanager.cpp */,
-				316957D222B13E75001BE627 /* iresourcemanager.hpp */,
 				3150BDCD22BD4E1000E8FF0E /* ifontmanager.cpp */,
 				3150BDCE22BD4E1000E8FF0E /* ifontmanager.hpp */,
 				318096F222C1273B0092B816 /* spritemanager.cpp */,
@@ -173,10 +171,21 @@
 		314022C122C784BE002820F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				31A6369422CA798500FEC6AC /* libfreetype.6.dylib */,
+				31A6369222CA78FA00FEC6AC /* libfreetype.a */,
 				314022C222C784CE002820F5 /* OpenGL.framework */,
 				314022BE22C78498002820F5 /* libportaudio.2.dylib */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3150B4F522C92790003D2576 /* freetype */ = {
+			isa = PBXGroup;
+			children = (
+				3150B4F622C927C6003D2576 /* fontmanagerft.cpp */,
+				3150B4F722C927C6003D2576 /* fontmanagerft.hpp */,
+			);
+			name = freetype;
 			sourceTree = "<group>";
 		};
 		3150BDC722BD3FA000E8FF0E /* engine-util */ = {
@@ -227,8 +236,6 @@
 		31F1D2AA22AFF3420023D763 /* example-game */ = {
 			isa = PBXGroup;
 			children = (
-				31F1D2AB22AFF37F0023D763 /* factory.cpp */,
-				31F1D2AC22AFF37F0023D763 /* factory.hpp */,
 				31F1D2BD22AFF6A20023D763 /* tile.cpp */,
 				31F1D2BE22AFF6A20023D763 /* tile.hpp */,
 				31181FBE22B9762300EC5BAC /* mycontroller.cpp */,
@@ -242,6 +249,7 @@
 			children = (
 				314022C122C784BE002820F5 /* Frameworks */,
 				316D472222C564AE00012B52 /* portaudio */,
+				3150B4F522C92790003D2576 /* freetype */,
 				3150BDC722BD3FA000E8FF0E /* engine-util */,
 				313C665E22AEC0A900EF8A7C /* engine */,
 				317BBE2A22B9410C005AF45B /* opengl */,
@@ -269,17 +277,9 @@
 				31F5073222AE990C003F32CD /* Assets.xcassets */,
 				31F5073422AE990C003F32CD /* MainMenu.xib */,
 				31F5073722AE990C003F32CD /* Info.plist */,
-				31F5072F22AE990C003F32CD /* Supporting Files */,
-			);
-			path = game;
-			sourceTree = "<group>";
-		};
-		31F5072F22AE990C003F32CD /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
 				31F5073022AE990C003F32CD /* main.m */,
 			);
-			name = "Supporting Files";
+			path = game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +294,7 @@
 				31181FBC22B9756F00EC5BAC /* itexturemanager.hpp in Headers */,
 				316D472622C564CC00012B52 /* audiomanagerpm.hpp in Headers */,
 				3150BDD022BD4E1000E8FF0E /* ifontmanager.hpp in Headers */,
+				3150B4F922C927C6003D2576 /* fontmanagerft.hpp in Headers */,
 				31FDC52822C2A1CA00738C0A /* iaudiomanager.hpp in Headers */,
 				3150BDC622BD3F9D00E8FF0E /* timeline.hpp in Headers */,
 				317BBE2E22B94142005AF45B /* texturemanagergl.hpp in Headers */,
@@ -401,6 +402,7 @@
 				318096F422C1273B0092B816 /* spritemanager.cpp in Sources */,
 				314022BC22C77716002820F5 /* wavefile.cpp in Sources */,
 				3150BDCA22BD482300E8FF0E /* shadergl.cpp in Sources */,
+				3150B4F822C927C6003D2576 /* fontmanagerft.cpp in Sources */,
 				3150BDCF22BD4E1000E8FF0E /* ifontmanager.cpp in Sources */,
 				316D472522C564CC00012B52 /* audiomanagerpm.cpp in Sources */,
 				3150BDC522BD3F9D00E8FF0E /* timeline.cpp in Sources */,
@@ -411,7 +413,6 @@
 				31FA47D322BADAE4003A2C5D /* shadermanager.cpp in Sources */,
 				31F1D2BA22AFF3B60023D763 /* animatable.cpp in Sources */,
 				31FA47CF22BAD4B8003A2C5D /* inputmanager.cpp in Sources */,
-				317BBE3522B944EB005AF45B /* iresourcemanager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +424,6 @@
 				31181FC022B9762300EC5BAC /* mycontroller.cpp in Sources */,
 				316957D022B13BFD001BE627 /* openglview-mac.mm in Sources */,
 				31F5072E22AE990C003F32CD /* AppDelegate.mm in Sources */,
-				31F1D2AD22AFF37F0023D763 /* factory.cpp in Sources */,
 				31F1D2BF22AFF6A20023D763 /* tile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +457,7 @@
 				EXECUTABLE_PREFIX = lib;
 				HEADER_SEARCH_PATHS = (
 					../lib,
+					../lib/freetype2,
 					/usr/local/include,
 				);
 				LIBRARY_SEARCH_PATHS = "";
@@ -470,6 +471,7 @@
 				EXECUTABLE_PREFIX = lib;
 				HEADER_SEARCH_PATHS = (
 					../lib,
+					../lib/freetype2,
 					/usr/local/include,
 				);
 				LIBRARY_SEARCH_PATHS = "";
@@ -562,12 +564,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				HEADER_SEARCH_PATHS = (
+					../lib/freetype2,
 					../lib,
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = "game-mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../lib/portaudio";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../lib/portaudio",
+					"$(PROJECT_DIR)/../lib/freetype2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.jessetvogel.game-mac";
 				PRODUCT_NAME = "game-mac";
 			};
@@ -579,12 +585,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				HEADER_SEARCH_PATHS = (
+					../lib/freetype2,
 					../lib,
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = "game-mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../lib/portaudio";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../lib/portaudio",
+					"$(PROJECT_DIR)/../lib/freetype2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.jessetvogel.game-mac";
 				PRODUCT_NAME = "game-mac";
 			};

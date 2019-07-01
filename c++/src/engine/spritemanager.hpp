@@ -16,7 +16,7 @@ namespace Game {
         
         SpriteManager(ITextureManager* m) : textureManager(m) {}
         
-        bool defineSprite(std::string, SpriteData&);
+        bool defineSprite(std::string, SpriteData);
         
         Sprite* getSprite(std::string);
         void releaseSprite(Sprite*);

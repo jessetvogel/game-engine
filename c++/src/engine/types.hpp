@@ -22,7 +22,6 @@ namespace Game {
         std::string type;
         std::string id;
         std::unordered_map<std::string, std::string>& params;
-        
     } ObjectData;
     
     typedef struct {
@@ -42,7 +41,7 @@ namespace Game {
     
     // Input types
     enum KeyCode {
-        
+        Space = 49, ArrowUp = 126, ArrowLeft = 123, ArrowRight = 124, ArrowDown = 125
     };
     
     enum MouseButton {
@@ -78,20 +77,32 @@ namespace Game {
         int frames;
     } Sprite;
     
-    
-    
-    
-    
-    
-    class ReferenceAble {
+    struct Font {
+        struct Character {
+            Vec2 size;     // Size of glyph
+            Vec2 bearing;  // Offset from baseline to left/top of glyph
+            float advance; // Offset to advance to next glyph
+        };
         
-        int ref = 1;
-        
-    public:
-        
-        void retain() { ++ref; }
-        void release() { if(--ref <= 0) delete this; }
+        TextureId texture;
+        int width, height;
+        Character characters[128];
     };
+
+    
+    
+    
+    
+    
+//    class ReferenceAble {
+//        
+//        int ref = 1;
+//        
+//    public:
+//        
+//        void retain() { ++ref; }
+//        void release() { if(--ref <= 0) delete this; }
+//    };
 }
 
 #endif

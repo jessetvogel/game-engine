@@ -1,7 +1,7 @@
 #ifndef itexturemanager_hpp
 #define itexturemanager_hpp
 
-#include "iresourcemanager.hpp"
+#include "types.hpp"
 
 namespace Game {
     
@@ -15,16 +15,20 @@ namespace Game {
         std::unordered_map<std::string, std::string> definitions;
         std::unordered_map<std::string, TextureData> textureData;
         
-        virtual TextureId loadTexture(std::string) = 0;
-        virtual void freeTexture(ResId) = 0;
+        TextureId loadTexture(std::string);
+        
+        virtual TextureId createTexture(unsigned char*, int, int, int) = 0;
+        virtual void freeTexture(TextureId) = 0;
         
     public:
         
-        void manageTextures();
         bool defineTexture(std::string, std::string);
+        void cleanUpTextures();
         
         TextureId getTexture(std::string);
+        TextureId getTexture(unsigned char*, int, int, int);
         void releaseTexture(TextureId);
+
         
     };
     

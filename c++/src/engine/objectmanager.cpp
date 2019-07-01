@@ -9,6 +9,16 @@ using namespace rapidjson;
 
 extern void error(string);
 
+bool ObjectManager::defineObject(string name, IObject* (*f)(ObjectData&)) {
+    // Check if 'name' is already defined
+    auto it = definitions.find(name);
+    if(it != definitions.end())
+        return false;
+    
+    definitions[name] = f;
+    return true;
+}
+
 void ObjectManager::clearObjects() {
     // Delete all objects & clear all lists
     for(auto& entry : objects)
@@ -56,24 +66,18 @@ void ObjectManager::manageObjects() {
     objectsToDestroy.clear();
 }
 
-void ObjectManager::setObjectFactory(IObjectFactory* factory) {
-    objectFactory = factory;
-}
-
 bool ObjectManager::goToScene(string scene) {
     sceneToLoad = scene;
     return true;
 }
 
 bool ObjectManager::create(ObjectData& data) {
-    // Requires an object factory
-    if(objectFactory == nullptr) {
-        error("object factory is not set");
+    // Create Object from definition
+    auto it = definitions.find(data.type);
+    if(it == definitions.end())
         return false;
-    }
     
-    // Try to produce an object
-    IObject* obj = objectFactory->create(data);
+    IObject* obj = (it->second)(data);
     if(obj == nullptr) {
         error("failed to create object of type " + data.type);
         return false;

@@ -99,7 +99,7 @@ AudioData* IAudioManager::loadAudioData(string path) {
     return data;
 }
 
-void IAudioManager::manageAudio() { // TODO: this may be optimized ?
+void IAudioManager::cleanUpAudio() { // TODO: this may be optimized ?
     // Release all AudioData that is not currently in use
     for(auto it = audioData.begin();it != audioData.end();) {
         bool flag = false;

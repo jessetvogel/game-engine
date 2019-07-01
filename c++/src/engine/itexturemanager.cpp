@@ -1,7 +1,10 @@
 #include "itexturemanager.hpp"
+#include "lodepng.hpp"
 
 using namespace std;
 using namespace Game;
+
+extern void error(string);
 
 bool ITextureManager::defineTexture(string name, string path) {
     // Check if 'name' is already defined
@@ -13,7 +16,8 @@ bool ITextureManager::defineTexture(string name, string path) {
     return true;
 }
 
-void ITextureManager::manageTextures() {
+void ITextureManager::cleanUpTextures() {
+    // Free all textures that are not currently in use
     for(auto it = textureData.begin();it != textureData.end();) {
         if(it->second.refCount <= 0) {
             freeTexture(it->second.id);
@@ -44,11 +48,43 @@ TextureId ITextureManager::getTexture(string name) {
     }
 }
 
+TextureId ITextureManager::getTexture(unsigned char* pixels, int width, int height, int channels) {
+    TextureId id = createTexture(pixels, width, height, channels);
+    if(id < 0)
+        return -1;
+    
+    return id;
+}
+
 void ITextureManager::releaseTexture(TextureId id) {
+    // Decrement reference count
     for(auto& entry : textureData) {
         if(entry.second.id == id) {
             -- entry.second.refCount;
-            break;
+            return;
         }
     }
+    
+    // If not in map, free immediately
+    freeTexture(id);
+}
+
+TextureId ITextureManager::loadTexture(string path) {
+    // Load image
+    unsigned int width, height;
+    vector<unsigned char> pixels;
+    unsigned err = lodepng::decode(pixels, width, height, path);
+    if(err) {
+        error("Failed to load png '" + path + "' (error " + to_string(err) + "): " + lodepng_error_text(err));
+        
+        // Use checkers board as default TODO: remove this at some point
+        pixels.clear();
+        pixels.push_back(127); pixels.push_back(127); pixels.push_back(127); pixels.push_back(255);
+        pixels.push_back(255); pixels.push_back(255); pixels.push_back(255); pixels.push_back(255);
+        pixels.push_back(255); pixels.push_back(255); pixels.push_back(255); pixels.push_back(255);
+        pixels.push_back(127); pixels.push_back(127); pixels.push_back(127); pixels.push_back(255);
+        width = height = 2;
+    }
+    
+    return createTexture(&pixels[0], width, height, 4);
 }

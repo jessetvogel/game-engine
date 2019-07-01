@@ -3,7 +3,7 @@
 using namespace std;
 using namespace Game;
 
-bool SpriteManager::defineSprite(std::string name, SpriteData& data) {
+bool SpriteManager::defineSprite(std::string name, SpriteData data) {
     // Check if 'name' is already defined
     auto it = definitions.find(name);
     if(it != definitions.end())

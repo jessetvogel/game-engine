@@ -8,12 +8,17 @@ namespace Example {
 
     class Tile : public Game::IObject {
         
+        Game::Sprite* sprite;
         Game::Audio* gun;
+        Game::Font* font;
+        
+        float x, y;
         
     public:
         
         Tile(Game::ObjectData&);
-      
+        ~Tile();
+        
         void update(double);
         void render();
         

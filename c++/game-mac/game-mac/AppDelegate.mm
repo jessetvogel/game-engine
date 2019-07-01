@@ -1,10 +1,11 @@
 #import "AppDelegate.h"
 #import "openglview-mac.hpp"
 #include "mycontroller.hpp"
-#include "factory.hpp"
 #include "shadergl.hpp"
 #include <iostream>
 #include <portaudio/portaudio.h>
+
+#include "tile.hpp"
 
 @interface AppDelegate ()
 
@@ -20,8 +21,12 @@
     Example::MyController* controller = new Example::MyController();
     
     // Definitions
+    controller->defineObject("tile", [](Game::ObjectData& data) -> Game::IObject* { return new Example::Tile(data); });
+    
     controller->defineTexture("helloWorld", "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/textures/helloworld.png");
     controller->defineAudio("gun", "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/audio/gun.wav");
+    controller->defineSprite("sprite_1", { "helloWorld", 0.0f, 0.0f, 1.0f, 1.0f });
+    controller->defineFont("myriadpro", "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/fonts/Myriad Pro Regular.ttf");
     
     controller->addShader(new Game::ShaderGL({
         "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/shaders/shader.vsh",
@@ -30,9 +35,6 @@
     
     if(!controller->startAudioStream())
         std::cout << "Failed to start audio stream!" << std::endl;
-    
-    Example::Factory* factory = new Example::Factory();
-    controller->setObjectFactory(factory);
     
     controller->goToScene("/Users/jessetvogel/Desktop/test.json");
     

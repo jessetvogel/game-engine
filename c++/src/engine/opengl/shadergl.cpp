@@ -1,21 +1,22 @@
 #include "shadergl.hpp"
 #include <fstream>
-#include <iostream>
 
 using namespace std;
 using namespace Game;
+
+extern void error(string);
 
 ShaderGL::ShaderGL(ShaderData data) {
     // Open source files
     std::ifstream vertexFile(data.vertexShader, std::ios::binary | std::ios::ate);
     if(vertexFile.fail()) {
-        std::cout << "Failed to open vertex shader file: " << data.vertexShader << std::endl;
+        error("Failed to open vertex shader file: " + data.vertexShader);
         return;
     }
     
     std::ifstream fragmentFile(data.fragmentShader, std::ios::binary | std::ios::ate);
     if(fragmentFile.fail()) {
-        std::cout << "Failed to open fragment shader file: " << data.fragmentShader << std::endl;
+        error("Failed to open fragment shader file: " + data.fragmentShader);
         return;
     }
     
@@ -24,7 +25,7 @@ ShaderGL::ShaderGL(ShaderData data) {
     vertexFile.seekg(0, std::ios::beg);
     char vertexData[size + 1];
     if(!vertexFile.read(vertexData, size)) {
-        std::cout << "Failed to read vertex shader file: " << data.vertexShader << std::endl;
+        error("Failed to read vertex shader file: " + data.vertexShader);
         return;
     }
     vertexData[size] = '\0';
@@ -33,7 +34,7 @@ ShaderGL::ShaderGL(ShaderData data) {
     fragmentFile.seekg(0, std::ios::beg);
     char fragmentData[size + 1];
     if(!fragmentFile.read(fragmentData, size)) {
-        std::cout << "Failed to read fragment shader file: " << data.fragmentShader << std::endl;
+        error("Failed to read fragment shader file: " + data.fragmentShader);
         return;
     }
     fragmentData[size] = '\0';
@@ -68,10 +69,10 @@ GLuint ShaderGL::compileShader(const char* src, GLenum type) {
     GLint test;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &test);
     if(!test) {
-        cout << "Shader compilation failed with this message: ";
         char log[512];
-        glGetShaderInfoLog(shader, sizeof(log), nullptr, log);
-        cout << log << endl;
+        GLsizei length;
+        glGetShaderInfoLog(shader, sizeof(log), &length, log);
+        error("Shader compilation failed with this message: " + string(log, length));
     }
     
     return shader;

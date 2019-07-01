@@ -17,6 +17,11 @@ using namespace Game;
     [[self openGLContext] makeCurrentContext];
     GLint swapInt = 1;
     [[self openGLContext] setValues:&swapInt forParameter:NSOpenGLCPSwapInterval]; // set to vbl sync
+    
+    // Some OpenGL settings
+    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 - (void) drawRect:(NSRect) bounds {

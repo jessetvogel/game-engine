@@ -2,14 +2,15 @@
 #define objectmanager_hpp
 
 #include "types.hpp"
-#include "iobjectfactory.hpp"
+#include "iobject.hpp"
 
 namespace Game {
     
     class ObjectManager {
         
         Controller* const controller;
-        IObjectFactory* objectFactory = nullptr;
+        
+        std::unordered_map<std::string, IObject* (*)(ObjectData&)> definitions;
         
         std::unordered_map<std::string, IObject*> objectsById;
         std::vector<IObject*> objectsToAdd, objectsToDestroy;
@@ -27,7 +28,8 @@ namespace Game {
         
         ObjectManager(Controller* c) : controller(c) {}
         
-        void setObjectFactory(IObjectFactory*);
+        bool defineObject(std::string, IObject* (*)(ObjectData&));
+        
         bool goToScene(std::string);
         bool create(ObjectData&);
         bool destroy(IObject*);

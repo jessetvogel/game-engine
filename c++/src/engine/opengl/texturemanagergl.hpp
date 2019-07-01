@@ -8,8 +8,8 @@ namespace Game {
 
     class TextureManagerGL : virtual public ITextureManager {
     
-        TextureId loadTexture(std::string);
-        void freeTexture(TextureId);
+        TextureId createTexture(unsigned char*, int, int, int);
+        void freeTexture(TextureId);        
         
     };
     

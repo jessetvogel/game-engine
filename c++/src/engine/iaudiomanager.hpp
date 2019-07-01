@@ -2,7 +2,6 @@
 #define iaudiomanager_hpp
 
 #include "types.hpp"
-#include "iresourcemanager.hpp"
 
 namespace Game {
     
@@ -37,12 +36,6 @@ namespace Game {
     };
     
     class IAudioManager {
-    
-        struct AudioRecord {
-            std::string name;
-            RefCount refCount;
-            Audio* audio;
-        };
         
         AudioData* loadAudioData(std::string);
         
@@ -55,8 +48,8 @@ namespace Game {
         
     public:
         
-        void manageAudio();
         bool defineAudio(std::string, std::string);
+        void cleanUpAudio();
         
         Audio* getAudio(std::string);
         void releaseAudio(Audio*);
