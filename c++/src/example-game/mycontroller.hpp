@@ -3,20 +3,24 @@
 
 #include "controller.hpp"
 #include "texturemanagergl.hpp"
+#include "framebuffermanagergl.hpp"
 #include "audiomanagerpm.hpp"
-#include "fontmanagerft.hpp"
+#include "windowmanagerglmac.hpp"
 
 namespace Example {
     
     class MyController : public Game::Controller,
                          public Game::TextureManagerGL,
                          public Game::AudioManagerPM,
-                         public Game::FontManagerFT {
-
+                         public Game::FrameBufferManagerGL,
+                         public Game::WindowManagerGLMac {
+        
+        
     public:
-                 
-         MyController() : Game::IFontManager(this),
-                          Game::FontManagerFT(this) {}
+           
+        MyController(void* view) : Game::FrameBufferManagerGL(this, this),
+                                   Game::WindowManagerGLMac(view) {}
+                             
     
     };
     

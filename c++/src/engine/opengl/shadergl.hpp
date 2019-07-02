@@ -49,6 +49,7 @@ namespace Game {
         void setUniform(std::string, Vec3);
         void setUniform(std::string, Vec4);
         void setUniform(std::string, Mat4&);
+        void setUniform(std::string, int);
         
         void setAttribute(std::string, float*, size_t n = 0, size_t offset = 0);
         

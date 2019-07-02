@@ -1,11 +1,11 @@
-#ifndef ifontmanager_hpp
-#define ifontmanager_hpp
+#ifndef fontmanager_hpp
+#define fontmanager_hpp
 
 #include "itexturemanager.hpp"
 
 namespace Game {
     
-    class IFontManager {
+    class FontManager {
     
         struct FontData {
             Font* font;
@@ -15,7 +15,7 @@ namespace Game {
         std::unordered_map<std::string, std::string> definitions;
         std::unordered_map<std::string, FontData> fontData;
         
-        virtual Font* loadFont(std::string, int) = 0;
+        Font* loadFont(std::string, int);
         
     protected:
         
@@ -23,7 +23,7 @@ namespace Game {
         
     public:
         
-        IFontManager(ITextureManager* m) : textureManager(m) {}
+        FontManager(ITextureManager* m) : textureManager(m) {}
         
         bool defineFont(std::string, std::string);
         void cleanUpFonts();

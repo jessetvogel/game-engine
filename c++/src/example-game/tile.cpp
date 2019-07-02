@@ -17,9 +17,6 @@ Tile::Tile(ObjectData& data) : IObject(data) {
     y = stof(data.params["y"]);
     
     // Set shader settings
-    IShader* shader = c->getShader(0);
-    shader->setVertexDataLength(6);
-    
     float vertices[] = {
         -0.5f, -0.5f,
         -0.5f, 0.5f,
@@ -38,8 +35,13 @@ Tile::Tile(ObjectData& data) : IObject(data) {
         1.0f, 0.0f
     };
     
+    IShader* shader = c->getShader("ShaderGL");
+    shader->setVertexDataLength(6);
     shader->setAttribute("aVertex", vertices, 6, 0);
     shader->setAttribute("aTexCoord", texCoords, 6, 0);
+    shader = c->getShader("FontGL");
+    shader->setVertexDataLength(6);
+    shader->setAttribute("aVertex", texCoords, 6, 0);
 }
 
 Tile::~Tile() {
@@ -58,16 +60,16 @@ void Tile::update(double dt) {
     }
     
     if(c->isKeyDown(ArrowUp))
-        y += 16.0f;
+        y += 2.0f;
 
     if(c->isKeyDown(ArrowDown))
-        y -= 16.0f;
+        y -= 2.0f;
 
     if(c->isKeyDown(ArrowLeft))
-        x -= 16.0f;
+        x -= 2.0f;
     
     if(c->isKeyDown(ArrowRight))
-        x += 16.0f;
+        x += 2.0f;
 }
 
 #include <glm/ext.hpp>
@@ -75,11 +77,34 @@ void Tile::update(double dt) {
 void Tile::render() {
     Mat4 m = glm::mat4(1.0f);
     m = glm::translate(m, Vec3(x, y, 0.0f));
-    m = glm::scale(m, Vec3(512.0f, 512.0f, 1.0f));
-    Mat4 uMVP = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f) * m;
+    m = glm::scale(m, Vec3(48.0f, 48.0f, 1.0f));
     
-    IShader* shader = c->getShader(0);
+    Vec2 windowSize = c->getWindowSize();
+    
+    Mat4 uMVP = glm::ortho(0.0f, windowSize.x, 0.0f, windowSize.y) * m;
+    
+    IShader* shader = c->getShader("ShaderGL");
+    shader->setTexture("uTexture", sprite->texture);
+    shader->setUniform("uMVP", uMVP);
+    
+    shader->render();
+    
+    shader->setTexture("uTexture", sprite->texture);
+    shader->render();
+    
+    shader = c->getShader("FontGL");
     shader->setTexture("uTexture", font->texture);
     shader->setUniform("uMVP", uMVP);
-    shader->render();
+    shader->setUniform("uColor", Vec4(0.0f, 0.0f, 0.0f, 1.0f));
+    
+    string text = "Hello world!";
+
+    Vec2 position = Vec2(0.0f, 0.0f);
+    for(char c : text) {
+        shader->setUniform("uChar", (int) c);
+        shader->setUniform("uOffset", position + Vec2(font->characters[c].bearing.x, font->characters[c].bearing.y));
+        shader->render();
+        
+        position.x += font->characters[c].advance;
+    }
 }

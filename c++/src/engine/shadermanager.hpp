@@ -8,15 +8,14 @@ namespace Game {
     
     class ShaderManager {
         
-        std::vector<IShader*> shaders;
-        size_t n = 0;
+        std::unordered_map<std::string, IShader*> shaders;
         
     public:
         
         ~ShaderManager();
         
-        ResId addShader(IShader*);
-        IShader* getShader(ResId);
+        bool addShader(std::string, IShader*);
+        IShader* getShader(std::string);
         
     };
     

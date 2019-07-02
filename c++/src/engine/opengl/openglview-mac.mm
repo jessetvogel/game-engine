@@ -32,7 +32,7 @@ using namespace Game;
     glClear(GL_COLOR_BUFFER_BIT);
     
     if(controller != nullptr) {
-        controller->update(1);
+        controller->update(0.017);
         controller->render();
     }
     

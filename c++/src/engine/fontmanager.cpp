@@ -1,13 +1,67 @@
-#include "fontmanagerft.hpp"
+#include "fontmanager.hpp"
 #include <ft2build.h>
 #include FT_FREETYPE_H
-
-#include <iostream>
 
 using namespace std;
 using namespace Game;
 
 extern void error(string);
+
+bool FontManager::defineFont(string name, string path) {
+    // Check if 'name' is already defined
+    auto it = definitions.find(name);
+    if(it != definitions.end())
+        return false;
+    
+    definitions[name] = path;
+    return true;
+}
+
+void FontManager::cleanUpFonts() {
+    // Free all fonts that are not currently in use
+    for(auto it = fontData.begin();it != fontData.end();) {
+        if(it->second.refCount <= 0) {
+            textureManager->releaseTexture(it->second.font->texture);
+            delete it->second.font;
+            it = fontData.erase(it);
+        }
+        else {
+            ++ it;
+        }
+    }
+}
+
+Font* FontManager::getFont(string name) {
+    // Check if Font is already loaded
+    auto it = fontData.find(name);
+    if(it != fontData.end()) {
+        ++ it->second.refCount;
+        return it->second.font;
+    }
+    else {
+        // Create Font from definition
+        auto it = definitions.find(name);
+        if(it == definitions.end())
+            return nullptr;
+        
+        Font* font = loadFont(it->second, 24);
+        if(font == nullptr)
+            return nullptr;
+        
+        fontData[name] = { font, 1 };
+        return font;
+    }
+}
+
+void FontManager::releaseFont(Font* font) {
+    // Decrement reference count
+    for(auto& entry : fontData) {
+        if(entry.second.font == font) {
+            -- entry.second.refCount;
+            break;
+        }
+    }
+}
 
 unsigned int next_power_of_two(unsigned int v) {
     -- v;
@@ -20,7 +74,7 @@ unsigned int next_power_of_two(unsigned int v) {
     return v;
 }
 
-Font* FontManagerFT::loadFont(string path, int size) {
+Font* FontManager::loadFont(string path, int size) {
     // Load font using FreeType
     FT_Library ft;
     if(FT_Init_FreeType(&ft)) {
@@ -35,7 +89,7 @@ Font* FontManagerFT::loadFont(string path, int size) {
     }
     
     FT_Set_Pixel_Sizes(face, 0, size);
-
+    
     // Determine maximum width/height of glyphs
     unsigned int maxWidth = 0, maxHeight = 0;
     for(FT_ULong c = 0; c < 128; ++c) {
@@ -54,7 +108,7 @@ Font* FontManagerFT::loadFont(string path, int size) {
     
     // Create pixel data from font
     int w = next_power_of_two(maxWidth),
-        h = next_power_of_two(maxHeight);
+    h = next_power_of_two(maxHeight);
     unsigned char pixels[w * h * 256];
     memset(pixels, 0, sizeof(unsigned char) * w * h * 256);
     
@@ -73,15 +127,15 @@ Font* FontManagerFT::loadFont(string path, int size) {
         }
         
         // Set Font character information
-        font->characters[c].size = Vec2((float) face->glyph->bitmap.width / (w * 16), (float) face->glyph->bitmap.rows / (h * 16));
-        font->characters[c].bearing = Vec2((float) face->glyph->bitmap_left / (w * 16), (float) face->glyph->bitmap_top / (h * 16));
-        font->characters[c].advance = (float) face->glyph->advance.x / (w * 16);
+        font->characters[c].size = Vec2((float) face->glyph->bitmap.width / w, (float) face->glyph->bitmap.rows / h);
+        font->characters[c].bearing = Vec2((float) face->glyph->bitmap_left / w, (float) face->glyph->bitmap_top / h);
+        font->characters[c].advance = (float) (face->glyph->advance.x >> 6) / w;
     }
-
+    
     // Clear FreeType objects
     FT_Done_Face(face);
     FT_Done_FreeType(ft);
-        
+    
     // Create texture from pixel data
     TextureId texture = textureManager->getTexture(pixels, w * 16, h * 16, 1);
     if(texture < 0)

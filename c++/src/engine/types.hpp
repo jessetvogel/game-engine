@@ -28,10 +28,6 @@ namespace Game {
         std::string vertexShader;
         std::string fragmentShader;
     } ShaderData;
-        
-    typedef struct {
-        
-    } RenderData;
     
     typedef struct {
         std::string texture;
@@ -77,7 +73,7 @@ namespace Game {
         int frames;
     } Sprite;
     
-    struct Font {
+    typedef struct {
         struct Character {
             Vec2 size;     // Size of glyph
             Vec2 bearing;  // Offset from baseline to left/top of glyph
@@ -87,22 +83,12 @@ namespace Game {
         TextureId texture;
         int width, height;
         Character characters[128];
-    };
+    } Font;
 
     
     
     
     
-    
-//    class ReferenceAble {
-//        
-//        int ref = 1;
-//        
-//    public:
-//        
-//        void retain() { ++ref; }
-//        void release() { if(--ref <= 0) delete this; }
-//    };
 }
 
 #endif

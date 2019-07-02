@@ -240,6 +240,13 @@ void ShaderGL::setUniform(string name, Mat4& value) {
         glUniformMatrix4fv(u->location, 1, GL_FALSE, &value[0][0]);
 }
 
+void ShaderGL::setUniform(string name, int value) {
+    glUseProgram(program);
+    Uniform* u = getUniform(name);
+    if(u != nullptr)
+        glUniform1i(u->location, value);
+}
+
 void ShaderGL::setAttribute(string name, float* values, size_t n, size_t offset) {
     Attribute* a = getAttribute(name);
     if(a != nullptr) {

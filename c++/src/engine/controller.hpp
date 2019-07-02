@@ -1,13 +1,15 @@
 #ifndef controller_hpp
 #define controller_hpp
 
+#include "iwindowmanager.hpp"
 #include "objectmanager.hpp"
 #include "inputmanager.hpp"
 #include "shadermanager.hpp"
 #include "spritemanager.hpp"
 #include "itexturemanager.hpp"
+#include "iframebuffermanager.hpp"
 #include "iaudiomanager.hpp"
-#include "ifontmanager.hpp"
+#include "fontmanager.hpp"
 
 namespace Game {
 
@@ -15,14 +17,17 @@ namespace Game {
                        public InputManager,
                        public ShaderManager,
                        public SpriteManager,
+                       public FontManager,
+                       virtual public IWindowManager,
                        virtual public ITextureManager,
-                       virtual public IAudioManager,
-                       virtual public IFontManager {
+                       virtual public IFrameBufferManager,
+                       virtual public IAudioManager {
         
     public:
         
         Controller() : ObjectManager(this),
-                       SpriteManager(this) {}
+                       SpriteManager(this),
+                       FontManager(this) {}
         
         void update(double);
         void render();
