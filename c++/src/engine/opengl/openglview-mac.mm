@@ -28,7 +28,7 @@ using namespace Game;
     [[self openGLContext] makeCurrentContext];
     glViewport(0, 0, bounds.size.width, bounds.size.height);
     
-    glClearColor(1.0f, 0.5f, 0.0f, 1.0f);
+    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
     if(controller != nullptr) {

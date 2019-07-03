@@ -28,6 +28,8 @@ namespace Game {
         Controller() : ObjectManager(this),
                        SpriteManager(this),
                        FontManager(this) {}
+                           
+        virtual ~Controller() {}
         
         void update(double);
         void render();

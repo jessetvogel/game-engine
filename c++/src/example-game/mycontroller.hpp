@@ -14,14 +14,12 @@ namespace Example {
                          public Game::AudioManagerPM,
                          public Game::FrameBufferManagerGL,
                          public Game::WindowManagerGLMac {
-        
-        
+    
     public:
            
         MyController(void* view) : Game::FrameBufferManagerGL(this, this),
                                    Game::WindowManagerGLMac(view) {}
-                             
-    
+
     };
     
 }

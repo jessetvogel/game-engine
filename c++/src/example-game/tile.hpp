@@ -9,10 +9,10 @@ namespace Example {
     class Tile : public Game::IObject {
         
         Game::Sprite* sprite;
-        Game::Audio* gun;
-        Game::Font* font;
+//        Game::Audio* gun;
+//        Game::Font* font;
         
-        float x, y;
+        float x, y, width, height;
         
     public:
         

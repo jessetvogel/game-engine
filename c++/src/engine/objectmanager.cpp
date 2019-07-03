@@ -71,7 +71,7 @@ bool ObjectManager::goToScene(string scene) {
     return true;
 }
 
-bool ObjectManager::create(ObjectData& data) {
+bool ObjectManager::createObject(ObjectData& data) {
     // Create Object from definition
     auto it = definitions.find(data.type);
     if(it == definitions.end())
@@ -88,7 +88,7 @@ bool ObjectManager::create(ObjectData& data) {
     return true;
 }
 
-bool ObjectManager::destroy(IObject* obj) {
+bool ObjectManager::destroyObject(IObject* obj) {
     // Must be non-null
     if(obj == nullptr) {
         error("tried to destroy nullptr");
@@ -169,7 +169,7 @@ bool ObjectManager::loadScene(string path) {
             id,
             params
         };
-        create(data);
+        createObject(data);
     }
     
     return true;

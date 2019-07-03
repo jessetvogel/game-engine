@@ -31,8 +31,8 @@ namespace Game {
         bool defineObject(std::string, IObject* (*)(ObjectData&));
         
         bool goToScene(std::string);
-        bool create(ObjectData&);
-        bool destroy(IObject*);
+        bool createObject(ObjectData&);
+        bool destroyObject(IObject*);
         IObject* getObjectById(std::string);
         std::vector<IObject*> getObjectsByType(std::string);
         
