@@ -1,0 +1,13 @@
+var definitions = {
+
+	"textures": {
+		
+	},
+
+	"sprites": {
+
+	}
+
+};
+
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sass --watch style.scss:style.css --no-source-map
+
