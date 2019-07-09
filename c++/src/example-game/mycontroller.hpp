@@ -17,8 +17,8 @@ namespace Example {
     
     public:
            
-        MyController(void* view) : Game::FrameBufferManagerGL(this, this),
-                                   Game::WindowManagerGLMac(view) {}
+        MyController(void* view) : Game::WindowManagerGLMac(view),
+                                   Game::FrameBufferManagerGL(this) {}
 
     };
     

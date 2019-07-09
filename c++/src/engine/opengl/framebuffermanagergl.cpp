@@ -6,16 +6,15 @@ using namespace Game;
 
 extern void error(string);
 
-IFrameBufferManager::FrameBuffer FrameBufferManagerGL::createFrameBuffer() {
+IFrameBufferManager::FrameBuffer FrameBufferManagerGL::createFrameBuffer(int width, int height, int channels) {
     // Create Frame Buffer Object
     GLuint FBO;
     glGenFramebuffers(1, &FBO);
     glBindFramebuffer(GL_FRAMEBUFFER, FBO);
     
     // Attach texture to frame buffer TODO: this should also be deleted!
-    Vec2 windowSize = windowManager->getWindowSize();
-    GLuint texture = textureManager->getTexture(nullptr, windowSize.x, windowSize.y, 3);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
+    GLuint textureId = textureManager->getTexture(nullptr, width, height, channels).id;
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureId, 0);
     
     // Check for completeness
     if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
@@ -24,7 +23,7 @@ IFrameBufferManager::FrameBuffer FrameBufferManagerGL::createFrameBuffer() {
     
     return {
         (int) FBO,
-        (TextureId) texture
+        { (TextureId) textureId, Vec2(width, height) }
     };
 }
 

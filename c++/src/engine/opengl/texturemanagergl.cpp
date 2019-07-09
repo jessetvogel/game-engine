@@ -4,14 +4,14 @@
 using namespace std;
 using namespace Game;
 
-TextureId TextureManagerGL::createTexture(unsigned char* pixels, int width, int height, int channels) {
+Texture TextureManagerGL::createTexture(unsigned char* pixels, int width, int height, int channels) {
     // Determine texture format
     GLenum format;
     if(channels == 1) format = GL_RED;
     else if(channels == 2) format = GL_RG;
     else if(channels == 3) format = GL_RGB;
     else if(channels == 4) format = GL_RGBA;
-    else return -1;
+    else return { -1, Vec2(0.0f, 0.0f) };
     
     // Create texture
     GLuint texture;
@@ -21,11 +21,11 @@ TextureId TextureManagerGL::createTexture(unsigned char* pixels, int width, int 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     
-    return texture;
+    return { (TextureId) texture, Vec2(width, height) };
 }
 
-void TextureManagerGL::freeTexture(TextureId id) {
+void TextureManagerGL::freeTexture(Texture texture) {
     // Delete texture
-    GLuint texture = id;
-    glDeleteTextures(1, &texture);
+    GLuint id = texture.id;
+    glDeleteTextures(1, &id);
 }

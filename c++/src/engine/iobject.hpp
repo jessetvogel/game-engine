@@ -25,7 +25,7 @@ namespace Game {
         const std::string getType() { return type; }
         
         virtual void update(double) = 0;
-        virtual void render() = 0;
+        virtual void render() {}
         
     };
     

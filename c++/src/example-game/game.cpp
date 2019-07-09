@@ -2,6 +2,7 @@
 #include "shadergl.hpp"
 #include <portaudio/portaudio.h>
 #include "tile.hpp"
+#include "camera.hpp"
 
 using namespace std;
 using namespace Game;
@@ -17,17 +18,7 @@ Controller* start(void* view) {
     Controller* c = new MyController(view);
     
     // Definitions
-    c->defineObject("tile", [](ObjectData& data) -> IObject* { return new Example::Tile(data); });
-    
-    c->defineTexture("helloWorld", "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/textures/helloworld.png");
-    c->defineTexture("ground", "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/textures/ground.png");
-    c->defineTexture("sign", "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/textures/sign.png");
-    
-    c->defineSprite("ground", { "ground", 0.0f, 0.0f, 1.0f, 1.0f });
-    c->defineSprite("sign", { "sign", 0.0f, 0.0f, 1.0f, 1.0f });
-    
-    c->defineAudio("gun", "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/audio/gun.wav");
-    c->defineFont("myriadpro", "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/fonts/Myriad Pro Regular.ttf");
+    #include "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/definitions.def"
     
     // Add shaders
     c->addShader("ShaderGL", new ShaderGL({
@@ -37,6 +28,10 @@ Controller* start(void* view) {
     c->addShader("FontGL", new ShaderGL({
         "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/shaders/font.vsh",
         "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/shaders/font.fsh"
+    }));
+    c->addShader("SpriteGL", new ShaderGL({
+        "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/shaders/sprite.vsh",
+        "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/shaders/sprite.fsh"
     }));
     
     // Start audio stream by default

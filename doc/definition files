@@ -1,0 +1,38 @@
+Definition files:
+
+[textures.json]
+{
+	"texture_name": "path/to/texture.png",
+	"texture_name": "path/to/texture.png",
+	"texture_name": "path/to/texture.png",
+	...	
+}
+
+
+[sprites.json]
+{
+	"sprite_1": {
+		"texture": "texture_name",
+		"frame": [x, y, width, height],
+		"frames": number
+	}
+}
+
+
+[fonts.json]
+{
+	"font_name": "path/to/font.ttf",
+	"font_name": "path/to/font.ttf",
+	"font_name": "path/to/font.ttf",
+	...
+}
+
+
+[objects.def]
+{
+	"object_name": {
+		"class": "cpp_class_name",
+		"params": ["param_1", "param_2", "param_3", ...]
+	},
+	...
+}

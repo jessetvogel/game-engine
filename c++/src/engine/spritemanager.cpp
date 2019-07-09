@@ -20,15 +20,14 @@ Sprite* SpriteManager::getSprite(std::string name) {
         return nullptr;
     
     // Lookup texture
-    TextureId texture = textureManager->getTexture(it->second.texture);
-    if(texture < 0)
+    Texture texture = textureManager->getTexture(it->second.texture);
+    if(texture.id < 0)
         return nullptr;
     
     // Create Sprite from data
     Sprite* sprite = new Sprite();
     sprite->texture = texture;
-    sprite->x = it->second.x;
-    sprite->y = it->second.y;
+    sprite->frame = it->second.frame;
     sprite->frames = it->second.frames;
     return sprite;
 }

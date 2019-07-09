@@ -1,3 +1,4 @@
+/* html and body */
 html, body {
   width: 100%;
   height: 100%;
@@ -5,40 +6,33 @@ html, body {
   padding: 0px;
   overflow: hidden;
 
+  /* Prevent selecting stuff */
 	-webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
-  font-family: $font-main;
 }
 
+/* Regions */
 #container {
   display: flex;
   height: 100%;
 }
 
 #menu {
-  width: $menu-width;
+  width: 256px;
   height: 100%;
-  background: white;
-
-  .button {
-    height: 48px;
-    line-height: 48px;
-
-    &:hover {
-      background: red;
-    }
-  }
-
 }
 
-#content {
+#workspace {
   flex-grow: 1;
   height: 100%;
-  background: var(--content-background);
-  color: white;
+  background-color: var(--workspace-background);
+}
+
+#workspace canvas {
+  width: 100%;
+  height: 100%;
 }

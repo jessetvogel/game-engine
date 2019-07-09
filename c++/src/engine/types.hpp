@@ -21,7 +21,10 @@ namespace Game {
         Controller* c;
         std::string type;
         std::string id;
-        std::unordered_map<std::string, std::string>& params;
+        std::unordered_map<std::string, std::string>& parameters;
+        
+        template <typename T>
+        T get(std::string, T);
     } ObjectData;
     
     typedef struct {
@@ -31,7 +34,7 @@ namespace Game {
     
     typedef struct {
         std::string texture;
-        float x, y, width, height;
+        Vec4 frame;
         int frames;
     } SpriteData;
     
@@ -68,8 +71,13 @@ namespace Game {
     
     // [...] types
     typedef struct {
-        TextureId texture;
-        float x, y, width, height;
+        TextureId id;
+        Vec2 size;
+    } Texture;
+    
+    typedef struct {
+        Texture texture;
+        Vec4 frame;
         int frames;
     } Sprite;
     
@@ -80,7 +88,7 @@ namespace Game {
             float advance; // Offset to advance to next glyph
         };
         
-        TextureId texture;
+        Texture texture;
         int width, height;
         Character characters[128];
     } Font;

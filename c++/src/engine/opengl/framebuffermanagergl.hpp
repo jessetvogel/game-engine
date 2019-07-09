@@ -9,16 +9,15 @@ namespace Game {
     
     class FrameBufferManagerGL : virtual public IFrameBufferManager {
     
-        IWindowManager* const windowManager;
         TextureManagerGL* const textureManager;
         
-        FrameBuffer createFrameBuffer();
+        FrameBuffer createFrameBuffer(int, int, int);
         void useFrameBuffer(FrameBuffer&);
         void freeFrameBuffer(FrameBuffer&);
         
     public:
         
-        FrameBufferManagerGL(IWindowManager* w, TextureManagerGL* t) : windowManager(w), textureManager(t) {}
+        FrameBufferManagerGL(TextureManagerGL* t) : textureManager(t) {}
         
         void useDefaultFrameBuffer();
         

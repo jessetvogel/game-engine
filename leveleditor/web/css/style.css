@@ -1,43 +1,25 @@
-@font-face {
-  font-family: "myriadpro";
-  src: url("../fonts/Myriad Pro Regular.ttf");
-}
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0px;
+/* General defaults */
+* {
+  font-family: museosans;
   padding: 0px;
-  overflow: hidden;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-family: "myriadpro";
+  margin: 0px;
 }
 
-#container {
-  display: flex;
-  height: 100%;
+*:focus {
+  outline: none;
 }
 
-#menu {
-  width: 256px;
-  height: 100%;
-  background: white;
-}
-#menu .button {
-  height: 48px;
-  line-height: 48px;
-}
-#menu .button:hover {
-  background: red;
+/* Input fields */
+input {
+  line-height: 24px;
+  height: 24px;
+  border: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
 }
 
-#content {
-  flex-grow: 1;
-  height: 100%;
-  background: var(--content-background);
-  color: white;
+input:focus {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.30);
 }

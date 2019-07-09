@@ -11,25 +11,25 @@ namespace Game {
         
         struct FrameBuffer {
             int FBO;
-            TextureId texture;
+            Texture texture;
         };
 
     private:
         
         std::unordered_map<std::string, FrameBuffer> frameBuffers;
         
-        virtual FrameBuffer createFrameBuffer() = 0;
+        virtual FrameBuffer createFrameBuffer(int, int, int) = 0;
         virtual void useFrameBuffer(FrameBuffer&) = 0;
         virtual void freeFrameBuffer(FrameBuffer&) = 0;
         
     public:
         
-        bool createFrameBuffer(std::string);
+        bool createFrameBuffer(std::string, int, int, int);
         bool useFrameBuffer(std::string);
         virtual void useDefaultFrameBuffer() = 0;
         bool freeFrameBuffer(std::string);
         
-        TextureId getFrameBufferTexture(std::string);
+        Texture getFrameBufferTexture(std::string);
         
     };
     

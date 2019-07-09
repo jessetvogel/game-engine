@@ -1,0 +1,8 @@
+c->defineAudio("gun", "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/audio/gun.wav");
+c->defineFont("myriadpro", "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/fonts/Myriad Pro Regular.ttf");
+c->defineTexture("helloWorld", "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/textures/helloworld.png");
+c->defineTexture("tiles", "/Users/jessetvogel/Projects/game-engine/c++/src/example-game/textures/tiles.png");
+c->defineSprite("ground", { "tiles", { 0, 0, 32, 32 }, 1 });
+c->defineSprite("sign", { "tiles", { 32, 0, 16, 16 }, 1 });
+c->defineObject("camera", [](ObjectData& data) -> IObject* { return new Camera(data); });
+c->defineObject("tile", [](ObjectData& data) -> IObject* { return new Tile(data); });

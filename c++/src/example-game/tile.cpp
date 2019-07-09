@@ -1,5 +1,6 @@
 #include "tile.hpp"
 #include "controller.hpp"
+#include "camera.hpp"
 #include <iostream>
 #include "mycontroller.hpp"
 
@@ -9,14 +10,11 @@ using namespace Example;
 
 Tile::Tile(ObjectData& data) : IObject(data) {
     // Set gun sound
-//    gun = c->getAudio("gun");
-    sprite = c->getSprite(data.params["sprite"]);
-//    font = c->getFont("myriadpro");
-    
-    x = stof(data.params["x"]);
-    y = stof(data.params["y"]);
-    width = stof(data.params["w"]);
-    height = stof(data.params["h"]);
+//    gun = data.get("gun", (Audio*) nullptr);
+//    font = data.get("myriadpro", (Font*) nullptr);
+    sprite = data.get("sprite", (Sprite*) nullptr);
+    position = data.get("position", Vec2(0.0f, 0.0f));
+    size = data.get("size", Vec2(1.0f, 1.0f));
     
     // Set shader settings
     float vertices[] = {
@@ -37,7 +35,7 @@ Tile::Tile(ObjectData& data) : IObject(data) {
         1.0f, 0.0f
     };
     
-    IShader* shader = c->getShader("ShaderGL");
+    IShader* shader = c->getShader("SpriteGL");
     shader->setVertexDataLength(6);
     shader->setAttribute("aVertex", vertices, 6, 0);
     shader->setAttribute("aTexCoord", texCoords, 6, 0);
@@ -56,14 +54,14 @@ void Tile::update(double dt) {
             
             unordered_map<string, string> params;
             ObjectData data = { c, "tile", "", params };
-            params["x"] = to_string(x - 1.0f);
-            params["y"] = to_string(y);
-            params["w"] = to_string(width);
-            params["h"] = to_string(height);
+            params["position"] = to_string(position.x - 1.0f) + "," + to_string(position.y);
+            params["size"] = to_string(size.x) + "," + to_string(size.y);
             params["sprite"] = "sign";
             c->createObject(data);
             
             c->destroyObject(this);
+            
+            cout << params["position"] << endl;
             
         }
     }
@@ -90,15 +88,15 @@ void Tile::update(double dt) {
 
 void Tile::render() {
     Mat4 m = glm::mat4(1.0f);
-    m = glm::scale(m, Vec3(32.0f * width, 32.0f * height, 1.0f));
-    m = glm::translate(m, Vec3(x, y, 0.0f));
+    m = glm::translate(m, Vec3(position.x, position.y, 0.0f));
+    m = glm::scale(m, Vec3(size.x, size.y, 1.0f));
     
-    Vec2 windowSize = c->getWindowSize();
-    int w = round(windowSize.x / 2), h = round(windowSize.y / 2);
-    Mat4 uMVP = glm::ortho(-(float) w, windowSize.x - w, -(float) h, windowSize.y - h) * m;
+    Camera* camera = (Camera*) c->getObjectById("camera");
+    Mat4 uMVP = camera->getVPMatrix() * m;
     
-    IShader* shader = c->getShader("ShaderGL");
-    shader->setTexture("uTexture", sprite->texture);
+    IShader* shader = c->getShader("SpriteGL");
+    shader->setTexture("uTexture", sprite->texture.id);
+    shader->setUniform("uFrame", Vec4(sprite->frame.x / sprite->texture.size.x, sprite->frame.y / sprite->texture.size.y, sprite->frame.z / sprite->texture.size.x, sprite->frame.w / sprite->texture.size.y));
     shader->setUniform("uMVP", uMVP);
     shader->render();
     

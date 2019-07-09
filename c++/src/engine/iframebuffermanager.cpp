@@ -3,14 +3,14 @@
 using namespace std;
 using namespace Game;
 
-bool IFrameBufferManager::createFrameBuffer(string name) {
+bool IFrameBufferManager::createFrameBuffer(string name, int width, int height, int channels) {
     // Check if 'name' is already defined
     auto it = frameBuffers.find(name);
     if(it != frameBuffers.end())
         return false;
     
     // Try to create a new frame buffer
-    FrameBuffer fb = createFrameBuffer();
+    FrameBuffer fb = createFrameBuffer(width, height, channels);
     if(fb.FBO < 0)
         return false;
     
@@ -40,11 +40,11 @@ bool IFrameBufferManager::useFrameBuffer(string name) {
     return true;
 }
 
-TextureId IFrameBufferManager::getFrameBufferTexture(std::string name) {
+Texture IFrameBufferManager::getFrameBufferTexture(std::string name) {
     // Lookup frame buffer
     auto it = frameBuffers.find(name);
     if(it == frameBuffers.end())
-        return -1;
+        return { -1, Vec2(0.0f, 0.0f) };
     
     return it->second.texture;
 }

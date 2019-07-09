@@ -12,7 +12,7 @@ namespace Example {
 //        Game::Audio* gun;
 //        Game::Font* font;
         
-        float x, y, width, height;
+        Game::Vec2 position, size;
         
     public:
         

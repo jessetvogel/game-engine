@@ -4,17 +4,62 @@
     <meta charset="utf-8">
     <title>Level Editor</title>
     <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="css/theme_light.css" id="theme">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/workspace.js"></script>
+    <script type="text/javascript" src="js/textures.js"></script>
+    <script type="text/javascript" src="js/properties.js"></script>
+    <script type="text/javascript" src="js/input.js"></script>
+    <script type="text/javascript" src="js/saveload.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
   </head>
   <body>
     <div id="container">
       <div id="menu">
-        <div class="button">Textures</div>
-        <div class="button">Sprites</div>
-        <div class="button">Levels</div>
+        <div class="submenu closed">
+          <div class="submenu-title">Settings</div>
+          <div class="submenu-content">
+            <div class="input-property-value-wrapper"><div class="property">Grid width</div><div class="value"><input id="input-grid-width" type="number"/></div></div>
+            <div class="input-property-value-wrapper"><div class="property">Grid height</div><div class="value"><input id="input-grid-height" type="number"/></div></div>
+          </div>
+        </div>
+        <!-- <div class="submenu closed" id="submenu-texture">
+          <div class="submenu-title">Texture</div>
+          <div class="submenu-content">
+            <div class="input-text-wrapper"><input type="text" id="input-texture" placeholder="texture name" /></div>
+            <div class="menu-text"></div>
+            <div class="selected-texture-wrapper"><canvas></canvas></div>
+          </div>
+        </div> -->
+        <div class="submenu closed" id="submenu-object-properties">
+          <div class="submenu-title">Object properties</div>
+          <div class="submenu-content"></div>
+        </div>
+        <div class="submenu closed">
+          <div class="submenu-title">Save and Load</div>
+          <div class="submenu-content">
+            <div class="button-line">
+              <div class="button-row">
+                <div class="button" id="save-button">Save</div>
+                <label class="button" id="load-button"><input class="hidden" type="file" id="input-file" name="files[]" />Load</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="submenu closed">
+          <div class="submenu-title">Preferences</div>
+          <div class="submenu-content">
+            <div class="input-property-value-wrapper"><div class="property">Theme</div><div class="value"><div class="button-row"><div class="button" id="button-theme-light">Light</div><div class="button" id="button-theme-dark">Dark</div></div></div></div>
+          </div>
+        </div> -->
       </div>
-      <div id="content"></div>
+      <div id="workspace"><canvas></canvas></div>
     </div>
   </body>
 </html>

@@ -137,8 +137,8 @@ Font* FontManager::loadFont(string path, int size) {
     FT_Done_FreeType(ft);
     
     // Create texture from pixel data
-    TextureId texture = textureManager->getTexture(pixels, w * 16, h * 16, 1);
-    if(texture < 0)
+    Texture texture = textureManager->getTexture(pixels, w * 16, h * 16, 1);
+    if(texture.id < 0)
         return nullptr;
     font->texture = texture;
     
