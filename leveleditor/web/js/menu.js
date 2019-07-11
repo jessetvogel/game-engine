@@ -80,8 +80,6 @@ function menuSelectObject(object) {
 	document.getElementById('submenu-object-properties').classList.remove('closed');
 }  
 
-
-
 function createParameterInputLine(object, key) {
 	let line = document.createElement('div');
 	line.classList.add('parameter');

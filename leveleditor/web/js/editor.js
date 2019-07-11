@@ -4,6 +4,7 @@ var Editor = {
 	
 	objects: [],
 	selectedObject: null,
+	selectedType: '',
 
 	filename: 'Untitled.json',
 
@@ -41,10 +42,6 @@ var Editor = {
 	}
 };
 
-
-
-
-
 function editorCreateObject(type) {
 	// Check if object type is defined
 	if(!(type in Editor.definitions.objects))
@@ -71,18 +68,21 @@ function editorSetDefaultBlanks(object) {
 }
 
 function editorDeleteObject(object) {
-  // Remove object from list
-  Editor.objects = Editor.objects.filter(function (obj) { return obj !== object; });
+	if(object == null)
+		return;
+	
+	// Remove object from list
+	Editor.objects = Editor.objects.filter(function (obj) { return obj !== object; });
 
-  // If it was the selected or dragging object, that to null
-  if(object == Editor.selectedObject) editorSelectObject(null);
-  if(object == Editor.canvas.dragging.object) canvasSetDragObject(null);
-};
-
-function editorSelectObject(object) {
-  Editor.selectedObject = object;
-  menuSelectObject(object);
+	// If it was the selected or dragging object, that to null
+	if(object == Editor.selectedObject) editorSelectObject(null);
+	if(object == Editor.canvas.dragging.object) canvasSetDragObject(null);
 }
 
+function editorSelectObject(object) {
+	Editor.selectedObject = object;
+	menuSelectObject(object);
 
-
+	document.getElementById('button-delete-object').disabled =
+	document.getElementById('button-duplicate-object').disabled = (object == null);
+}

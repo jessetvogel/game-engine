@@ -1,17 +1,17 @@
-$menu-background: #ECEFF1;
-$menu-text: #263238;
-$submenu-background: #CFD8DC;
-$submenu-background-hover: #CFD8DC;
-$submenu-title: #263238;
-$button-background: #CFD8DC;
-$button-text: #263238;
-$button-yellow: #FFD54F;
-$button-green: #81C784;
-$button-red: #E57373;
-$button-blue: #64B5F6;
-$input-background: #263238;
-$input-text-invalid: #bf0000;
-$workspace-background: #ECEFF1;
-$grid-color: #B0BEC5;
+$text-color-dark: #263238;
+$text-color-light: #ffffff;
 
 $font-main: 'museosans';
+$font-size-header: 14px;
+$font-size-text: 12px;
+
+$shadow-dark: 0px 0px 5px rgba(0, 0, 0, 0.30);
+$shadow-light: 0px 0px 5px rgba(0, 0, 0, 0.12);
+
+$menu-background: #eceff1;
+$menu-width: 256px;
+$submenu-title-height: 48px;
+$submenu-title-background: #cfd8dc;
+
+// $input-text-invalid: #bf0000;
+$canvas-background: #eceff1;

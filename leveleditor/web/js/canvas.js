@@ -5,7 +5,6 @@ function initCanvas() {
  
 	// Add event handlers
 	window.addEventListener('resize', canvasOnResize);
-	document.addEventListener('keydown', canvasOnKeyDown);
 	Editor.canvas.canvas.addEventListener('mousewheel', canvasOnMouseWheel, { passive: false });
 	Editor.canvas.canvas.addEventListener('mousedown', canvasOnMouseDown);
 	Editor.canvas.canvas.addEventListener('mouseup', canvasOnMouseUp);
@@ -55,32 +54,6 @@ function canvasOnMouseMove(event) {
 		canvasDragObject(Editor.selectedObject);
 }
 
-function canvasOnKeyDown(event) {
-	if(!canvasHasFocus())
-		return;
-
-	switch(event.keyCode) {
-		case KEY_N: // New object
-			let object = editorCreateObject('tile');
-			canvasDragObject(object);
-			break;
-
-		case KEY_D: // Duplicate selected object
-			if(Editor.selectedObject != null) {
-				let object = Object.assign({}, Editor.selectedObject);
-				object.position = '' + Editor.canvas.cursor[0] + ',' + Editor.canvas.cursor[1];
-				canvasDragObject(object);
-				Editor.objects.push(object);
-			}
-			break;
-
-		case KEY_DELETE: // Delete selected object
-			if(Editor.selectedObject != null)
-				editorDeleteObject(Editor.selectedObject);
-			break;
-	}
-}
-
 function canvasOnResize() {
 	Editor.canvas.canvas.width = Editor.canvas.canvas.clientWidth;
 	Editor.canvas.canvas.height = Editor.canvas.canvas.clientHeight;
@@ -124,7 +97,7 @@ function canvasUpdateView() {
 		if(inputKeyDown(KEY_LEFT))  Editor.canvas.view.position[0] -= 10.0 / Editor.canvas.view.zoom * Editor.canvas.refreshTime;
 		if(inputKeyDown(KEY_RIGHT)) Editor.canvas.view.position[0] += 10.0 / Editor.canvas.view.zoom * Editor.canvas.refreshTime;
 	}
-};
+}
 
 function canvasDraw() {
 	// Clear screen
@@ -134,8 +107,9 @@ function canvasDraw() {
 	// Draw grid, objects, selection border & cursor coordinates
 	canvasDrawGrid();
 	canvasDrawObjects();
+	canvasDrawSelectionBorder();
 	canvasDrawCursorCoordinates();
-};
+}
 
 function canvasDrawGrid() {
 	// Get context
@@ -168,12 +142,12 @@ function canvasDrawGrid() {
 		ctx.lineTo(Editor.canvas.canvas.width, y + 0.5);
 		ctx.stroke();
 	}
-};
+}
 
 function canvasDrawObjects() {
 	for(let object of Editor.objects)
 		canvasDrawObject(object);
-};
+}
 
 function canvasDrawObject(object) {
 	// Requires position
@@ -191,14 +165,6 @@ function canvasDrawObject(object) {
 		ctx.globalAlpha = ((object == Editor.canvas.dragging.object) ? 0.5 : 1.0);
 		ctx.fill();
 		ctx.globalAlpha = 1.0;
-
-		if(Editor.selectedObject == object) {
-			ctx.strokeStyle = '#c34d4d';
-			ctx.lineWidth = 3;
-			ctx.beginPath();
-			ctx.arc(box[0] + 0.5 * box[2], box[1] + 0.5 * box[3], 16, 0, 2 * Math.PI, false);
-			ctx.stroke();	
-		}
 	}
 	else {
 		let sprite = Editor.definitions.sprites[object.sprite];
@@ -224,14 +190,37 @@ function canvasDrawObject(object) {
 			ctx.fillStyle = '#4d87c3';
 			ctx.fillRect(box[0], box[1], box[2], box[3]);
 		}
-
-		if(Editor.selectedObject == object) {
-			ctx.strokeStyle = '#c34d4d';
-			ctx.lineWidth = 3;
-			ctx.strokeRect(box[0], box[1], box[2], box[3]);
-		}
 	}
-};
+}
+
+function canvasDrawSelectionBorder() {
+	if(Editor.selectedObject == null)
+		return;
+
+	let object = Editor.selectedObject;
+
+	// Requires position
+	if(!('position' in object))
+		return;
+
+	let ctx = Editor.canvas.context;
+	let box = canvasGetObjectBoundingBox(object);
+
+	if(!('sprite' in object) || !(object.sprite in Editor.definitions.sprites)) {
+		// Draw red circle
+		ctx.strokeStyle = '#c34d4d';
+		ctx.lineWidth = 3;
+		ctx.beginPath();
+		ctx.arc(box[0] + 0.5 * box[2], box[1] + 0.5 * box[3], 16, 0, 2 * Math.PI, false);
+		ctx.stroke();
+	}
+	else {
+		// Draw red rectangle
+		ctx.strokeStyle = '#c34d4d';
+		ctx.lineWidth = 3;
+		ctx.strokeRect(box[0], box[1], box[2], box[3]);
+	}
+}
 
 function canvasDrawCursorCoordinates() {
 	// Only draw if hovering canvas
@@ -247,7 +236,7 @@ function canvasDrawCursorCoordinates() {
 		x = Math.round(x);
 		y = Math.round(y);
 	}
-	
+
 	// Transform coordinates
 	let position = [x, y];
 	canvasPositionToCoordinates(position);
@@ -265,7 +254,7 @@ function canvasDrawCursorCoordinates() {
 	ctx.globalAlpha = 1.0;
 	ctx.fillStyle = 'white';
 	ctx.fillText(str, position[0], position[1]);
-};
+}
 
 // Transformation functions
 function canvasPositionToCoordinates(v) {
@@ -342,7 +331,7 @@ function canvasIsHovering() {
 	let mouse = inputMouse();
 	let rect = Editor.canvas.canvas.getBoundingClientRect();
 	return mouse[0] > rect.left && mouse[0] < rect.right && mouse[1] > rect.top && mouse[1] < rect.bottom;
-};
+}
 
 function canvasDragObject(object) {
 	// If null, reset dragging object
@@ -363,4 +352,4 @@ function canvasDragObject(object) {
 	// Set dragging offset
 	Editor.canvas.dragging.offset[0] = Editor.canvas.cursor[0] - position[0];
 	Editor.canvas.dragging.offset[1] = Editor.canvas.cursor[1] - position[1];
-};
+}

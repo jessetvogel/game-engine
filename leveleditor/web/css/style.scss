@@ -2,192 +2,207 @@
 @import 'fonts';
 
 html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-  overflow: hidden;
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
 
-  // Prevent selection
-  -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+	// Prevent selection
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 body {
-  font-family: $font-main;
+	font-family: $font-main;
 }
 
 #container {
-  display: flex;
-  height: 100%;
+	display: flex;
+	height: 100%;
 }
 
 #menu {
-  width: 256px;
-  height: 100%;
-  background-color: $menu-background;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.24);
-  z-index: 1;
+	width: $menu-width;
+	height: 100%;
+	background-color: $menu-background;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	box-shadow: $shadow-dark;
+	z-index: 1;
 
-  .submenu {
-    width: 100%;
+	.submenu {
+		width: 100%;
 
-    .title {
-      height: 48px;
-      line-height: 48px;
-      font-size: 14px;
-      text-align: left;
-      padding-left: 16px;
-      cursor: pointer;
-      background-color: $submenu-background;
-      color: $submenu-title;
+		.title {
+			height: $submenu-title-height;
+			line-height: $submenu-title-height;
+			font-size: $font-size-header;
+			text-align: left;
+			padding-left: 16px;
+			cursor: pointer;
+			background-color: $submenu-title-background;
+			color: $text-color-dark;
 
-      &:hover {
-        background-color: darken($submenu-background-hover, 5%);
-      }
-    }
+			&:hover {
+				background-color: darken($submenu-title-background, 5%);
+			}
+		}
 
-    .content {
-      padding: 0px 8px;
-    }
+		.content {
+			padding: 0px 8px;
+		}
 
-    &.closed {
-      .content {
-        display: none;
-      }
-    }
-  }
+		&.closed {
+			.content {
+				display: none;
+			}
+		}
+	}
 }
 
 .submenu .content {
 
-    .parameter { // parameter line
-      margin: 8px 0px;
-      display: flex;
+	.parameter { // parameter line
+		margin: 8px 0px;
+		display: flex;
 
-      &> div {
-        line-height: 24px;
-        font-size: 12px;
-      }
+		&> div {
+			line-height: 24px;
+			font-size: $font-size-text;
+		}
 
-      &> div:first-child { // parameter name
-        width: 96px;
-        padding-right: 8px;
-        color: $menu-text;
-      }
+		&> div:first-child { // parameter name
+			width: 96px;
+			padding-right: 8px;
+			color: $text-color-dark;
+		}
 
-      &> div:nth-child(2) { // parameter value
-        flex-grow: 1;
-        text-align: center;
-      }
-    }
+		&> div:nth-child(2) { // parameter value
+			flex-grow: 1;
+			text-align: center;
+		}
+	}
+
+	select {
+		width: 100%;
+	}
+
+	.text {
+		width: 100%;
+		height: 24px;
+		line-height: 24px;
+		margin: 8px 0px;
+		text-align: center;
+		font-size: $font-size-text;
+		color: $text-color-dark;
+	}
 
 }
-
-.submenu .content .text {
-  width: 100%;
-  height: 24px;
-  line-height: 24px;
-  margin: 8px 0px;
-  text-align: center;
-  font-size: 12px;
-  color: $menu-text;
-}
-
 
 #canvas {
-  flex-grow: 1;
-  height: 100%;
-  background-color: $workspace-background;
+	position: relative;
+	flex-grow: 1;
+	height: 100%;
+	flex-direction: column;
+	background-color: $canvas-background;
 
-  canvas {
-    width: 100%;
-    height: 100%;
-  }
+	canvas {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+#toolbar {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	padding: 0px 4px;
+
+	button, label.button {
+		width: 32px;
+		height: 32px;
+		border-radius: 4px;
+		margin: 8px 4px;
+		border: 0px;
+		background-color: #263238;
+		box-shadow: $shadow-light;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&:hover:enabled, &.button:hover { // TODO: label should not be :enabled
+			cursor: pointer;
+			box-shadow: $shadow-dark;
+			background-color: lighten(#263238, 5%);
+		}
+
+		&:focus {
+			outline: none;
+		}
+
+		img {
+			width: 24px;
+			height: 24px;
+		}
+
+		&:disabled {
+			opacity: 0.5;
+		}
+	}
+
+	select {
+		width: 128px;
+		height: 32px;
+		margin: 8px 4px;
+		background-color: $text-color-dark;
+		color: $text-color-light;
+	}
 }
 
 input {
-  width: 100%;
-  height: 24px;
-  line-height: 24px;
-  padding: 0px;
-  border: 0px;
-  text-align: center;
-  font-family: $font-main;
-  font-size: 12px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
+	width: 100%;
+	height: 24px;
+	line-height: 24px;
+	padding: 0px;
+	border: 0px;
+	text-align: center;
+	font-family: $font-main;
+	font-size: $font-size-text;;
+	box-shadow: $shadow-light;
 
-  &:focus {
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.30);
-    outline: none;
-  }
+	&:focus {
+		box-shadow: $shadow-dark;
+		outline: none;
+	}
 
-  &.invalid {
-    color: $input-text-invalid;
-  }
-
-  &.hidden {
-    display: none;
-  }
+	&.hidden {
+		display: none;
+	}
 }
 
 select {
-  width: 100%;
-  height: 24px;
-  line-height: 24px;
-  font-family: $font-main;
-  font-size: 12px;
-  text-align: center;
-  text-align-last: center;
-  background-color: white;
-  border: 0px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
+	height: 24px;
+	line-height: 24px;
+	font-family: $font-main;
+	font-size: $font-size-text;
+	text-align: center;
+	text-align-last: center;
+	background-color: white;
+	border: 0px;
+	box-shadow: $shadow-light;
 
-  &:focus {
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.30);
-    outline: none;
-  }
-}
-
-
-
-/* Submenu save and load */
-#save-button, #load-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  line-height: 32px;
-  padding: 0px 8px;
-  margin: 8px 0px;
-  text-align: center;
-  color: white;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
-  cursor: pointer;
-
-  &:hover {
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.30);
-  }
-
-  img {
-    width: 14px;
-    height: 14px;
-    margin-right: 4px;
-  }
-}
-
-#save-button {
-  background-color: #60a56b;
-  &:hover { background-color: darken(#60a56b, 5%); }
-}
-
-#load-button {
-  background-color: #bcbd5b;
-  &:hover { background-color: darken(#bcbd5b, 5%); }
+	&:focus {
+		box-shadow: $shadow-dark;
+		outline: none;
+	}
 }

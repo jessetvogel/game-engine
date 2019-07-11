@@ -10,17 +10,13 @@
 		<script type="text/javascript" src="js/menu.js"></script>
 		<script type="text/javascript" src="js/canvas.js"></script>
 		<script type="text/javascript" src="js/textures.js"></script>
-		<script type="text/javascript" src="js/saveload.js"></script>
+		<script type="text/javascript" src="js/toolbar.js"></script>
 		<script type="text/javascript" src="js/input.js"></script>
 		<script type="text/javascript" src="js/util.js"></script>
 	</head>
 	<body>
 		<div id="container">
 			<div id="menu">
-				<div class="submenu" id="submenu-object-properties">
-					<div class="title">Object properties</div>
-					<div class="content"></div>
-				</div>
 				<div class="submenu" id="submenu-settings">
 					<div class="title">Settings</div>
 					<div class="content">
@@ -29,19 +25,20 @@
 						<div class="parameter"><div >Background</div><div><input id="input-canvas-background" type="color"/></div></div>
 					</div>
 				</div>
-				<div class="submenu">
-					<div class="title">Save and Load</div>
-					<div class="content">
-						<div class="button-line">
-							<div class="button-row">
-								<div class="button" id="save-button"><img src="/img/icon-download.png"/>Save scene</div>
-								<label class="button" id="load-button"><input class="hidden" type="file" id="input-file" name="files[]" /><img src="/img/icon-upload.png"/>Load scene</label>
-							</div>
-						</div>
-					</div>
+				<div class="submenu" id="submenu-object-properties">
+					<div class="title">Object properties</div>
+					<div class="content"></div>
 				</div>
 			</div>
 			<div id="canvas">
+				<div id="toolbar">
+					<button id="button-save" title="Save scene"><img src="/img/icon-save.png"/></button>
+					<label class="button" title="Load scene"><input class="hidden" type="file" id="input-file" name="files[]" /><img src="/img/icon-load.png"/></label>
+					<select id="select-object-type"></select>
+					<button id="button-create-object" title="Create object"><img src="/img/icon-create.png" /></button>
+					<button id="button-delete-object" title="Delete object"><img src="/img/icon-delete.png" /></button>
+					<button id="button-duplicate-object" title="Duplicate object"><img src="/img/icon-duplicate.png" /></button>
+				</div>
 				<canvas></canvas>
 			</div>
 		</div>
