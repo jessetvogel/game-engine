@@ -35,6 +35,7 @@ namespace Game {
     typedef struct {
         std::string texture;
         Vec4 frame;
+        Vec2 center;
         int frames;
     } SpriteData;
     
@@ -78,6 +79,7 @@ namespace Game {
     typedef struct {
         Texture texture;
         Vec4 frame;
+        Vec2 center;
         int frames;
     } Sprite;
     

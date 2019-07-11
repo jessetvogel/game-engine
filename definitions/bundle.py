@@ -46,9 +46,13 @@ for name, sprite in sprites.items():
 		print("Sprite '{}' has undefined (or ill-defined) frame".format(name))
 		continue
 
-	x, y, w, h = sprite["frame"][0:4]
+	frame = sprite["frame"][0:4]
+	
+	center = [ 0, 0 ]
+	if "center" in sprite:
+		center = sprite["center"][0:2]
 
-	definitions += "c->defineSprite(\"{}\", {{ \"{}\", {{ {}, {}, {}, {} }}, {} }});\n".format(name, sprite["texture"], x, y, w, h, sprite["frames"])
+	definitions += "c->defineSprite(\"{}\", {{ \"{}\", {{ {}, {}, {}, {} }}, {{ {}, {} }}, {} }});\n".format(name, sprite["texture"], frame[0], frame[1], frame[2], frame[3], center[0], center[1], sprite["frames"])
 
 for name, _object in objects.items():
 	if "class" not in _object:

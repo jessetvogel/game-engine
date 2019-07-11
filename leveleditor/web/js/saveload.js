@@ -1,30 +1,31 @@
 function initSaveLoad() {
-	$('#save-button').click(save);
-	$('#input-file').change(load);
+	document.getElementById('save-button').addEventListener('click', save);
+	document.getElementById('input-file').addEventListener('change', load);
+	document.title = Editor.filename;
 }
 
 // Saves the current level as a file
 function save() {
-	download('untitled.json', JSON.stringify(Level.objects));
+	download(Editor.filename, JSON.stringify(Editor.objects));
 };
 
 // Loads 
 function load(event) {
 	// Clear list of objects
-	Level.objects = [];
+	Editor.objects = [];
 
-	// Get filename
-	var file = event.target.files[0];
-	// currentFileName = file.name;
-	// document.title = currentFileName;
+	// Set filename & document title
+	let file = event.target.files[0];
+	Editor.filename = file.name;
+	document.title = Editor.filename;
 
-	var fileReader = new FileReader();
+	let fileReader = new FileReader();
 	fileReader.onload = function(e) {
 		try {
-			Level.objects = JSON.parse(fileReader.result);
+			Editor.objects = JSON.parse(fileReader.result);
 		}
 		catch(e) {
-			alert("Failed to parse file! (" + e + ")");
+			alert('Failed to parse file! (' + e + ')');
 		}
 	}
 	fileReader.readAsText(file);

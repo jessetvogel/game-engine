@@ -28,6 +28,7 @@ Sprite* SpriteManager::getSprite(std::string name) {
     Sprite* sprite = new Sprite();
     sprite->texture = texture;
     sprite->frame = it->second.frame;
+    sprite->center = it->second.center;
     sprite->frames = it->second.frames;
     return sprite;
 }

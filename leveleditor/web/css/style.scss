@@ -1,0 +1,193 @@
+@import 'global';
+@import 'fonts';
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+
+  // Prevent selection
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+body {
+  font-family: $font-main;
+}
+
+#container {
+  display: flex;
+  height: 100%;
+}
+
+#menu {
+  width: 256px;
+  height: 100%;
+  background-color: $menu-background;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.24);
+  z-index: 1;
+
+  .submenu {
+    width: 100%;
+
+    .title {
+      height: 48px;
+      line-height: 48px;
+      font-size: 14px;
+      text-align: left;
+      padding-left: 16px;
+      cursor: pointer;
+      background-color: $submenu-background;
+      color: $submenu-title;
+
+      &:hover {
+        background-color: darken($submenu-background-hover, 5%);
+      }
+    }
+
+    .content {
+      padding: 0px 8px;
+    }
+
+    &.closed {
+      .content {
+        display: none;
+      }
+    }
+  }
+}
+
+.submenu .content {
+
+    .parameter { // parameter line
+      margin: 8px 0px;
+      display: flex;
+
+      &> div {
+        line-height: 24px;
+        font-size: 12px;
+      }
+
+      &> div:first-child { // parameter name
+        width: 96px;
+        padding-right: 8px;
+        color: $menu-text;
+      }
+
+      &> div:nth-child(2) { // parameter value
+        flex-grow: 1;
+        text-align: center;
+      }
+    }
+
+}
+
+.submenu .content .text {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  margin: 8px 0px;
+  text-align: center;
+  font-size: 12px;
+  color: $menu-text;
+}
+
+
+#canvas {
+  flex-grow: 1;
+  height: 100%;
+  background-color: $workspace-background;
+
+  canvas {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+input {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  padding: 0px;
+  border: 0px;
+  text-align: center;
+  font-family: $font-main;
+  font-size: 12px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
+
+  &:focus {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.30);
+    outline: none;
+  }
+
+  &.invalid {
+    color: $input-text-invalid;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+select {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  font-family: $font-main;
+  font-size: 12px;
+  text-align: center;
+  text-align-last: center;
+  background-color: white;
+  border: 0px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
+
+  &:focus {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.30);
+    outline: none;
+  }
+}
+
+
+
+/* Submenu save and load */
+#save-button, #load-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  line-height: 32px;
+  padding: 0px 8px;
+  margin: 8px 0px;
+  text-align: center;
+  color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.30);
+  }
+
+  img {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+  }
+}
+
+#save-button {
+  background-color: #60a56b;
+  &:hover { background-color: darken(#60a56b, 5%); }
+}
+
+#load-button {
+  background-color: #bcbd5b;
+  &:hover { background-color: darken(#bcbd5b, 5%); }
+}

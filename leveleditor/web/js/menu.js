@@ -1,68 +1,98 @@
-var Menu = {};
+function initMenu() {
+	// Toggle submenus when clicking on them
+	for(let title of document.querySelectorAll('.submenu .title')) {
+		title.addEventListener('click', function () {
+			if(this.parentElement.classList.contains('closed'))
+				this.parentElement.classList.remove('closed');
+			else
+				this.parentElement.classList.add('closed');
+		});
+	}
 
-Menu.initialize = function () {
-  // Initially, close all submenus
-  // $('.submenu').addClass('closed');
+	// Settings
+	linkInput(document.getElementById('input-grid-width'), Editor.canvas.grid, 'width');
+	linkInput(document.getElementById('input-grid-height'), Editor.canvas.grid, 'height');
+	linkInput(document.getElementById('input-canvas-background'), Editor.canvas, 'background');
 
-  // Slide toggle submenus when clicking on them
-  $('.submenu-title').click(function () { $(this).parent().toggleClass('closed'); });
+	// Select no object
+	menuSelectObject(null);
+}
 
-  // Select no object
-  Menu.setSelectedObject(null);
-};
+function menuSelectObject(object) {
+	let content = document.querySelector('#submenu-object-properties .content');
+	
+	if(object == null) {
+		content.innerHTML = '<div class="text">no object selected</div>';
+		return;
+	}
 
-Menu.setSelectedObject = function (object) {
-  // In case object = null
-  var submenuContent = $('#submenu-object-properties .submenu-content').html('');
-  if(object == null) {
-    submenuContent.html('<div class="menu-text">no object selected</div>');
-    return;
-  }
+	// Type line
+	content.innerHTML = '';
+	let div = document.createElement('div');
+	div.classList.add('parameter');
+	div.innerHTML = '<div>type</div>';
+	let select = document.createElement('select');
+	for(let type in Editor.definitions.objects)
+		select.innerHTML += '<option' + (type == object.type ? ' selected' : '') + '>' + type + '</option>';
+	let divdiv = document.createElement('div');
+	divdiv.append(select);
+	div.append(divdiv);
+	select.addEventListener('change', function () {
+		let target = this.value;
 
-  // Go through all properties that the object has
-  for(var i = 0;i < Properties.list.length; ++i) {
-    var property = Properties.list[i];
-    if(!Properties.has(object, property.name)) continue;
+		// Remove all parameters that should not be in object
+		for(let key in object) {
+			if(key === 'type' || key === 'id' || key === 'position')
+				continue;
 
-    // Create an input
-    var input = $('<input>').val('' + object[property.name]);
-    var line = $('<div>')
-      .addClass('input-property-value-wrapper')
-      .append($('<div>').addClass('property').text(property.description))
-      .append($('<div>').addClass('value').append(input));
-    (function (object, property) {
-      input.change(function () {
-        Properties.set(object, property.name, $(this).val());
-      });
-    })(object, property);
+			if(!(key in Editor.definitions.objects[target].parameters))
+				delete object[key];
+		}
 
-    // Append line to menu
-    submenuContent.append(line);
-  }
+		// Add parameters that are not yet in object
+		for(let param of Editor.definitions.objects[target].parameters) {
+			if(param in object)
+				continue;
 
-  // Button for new properties
-  var addButton = $('<div>').addClass('button button-green').text('+');
-  var minusButton = $('<div>').addClass('button button-red').text('-');
-  (function (object) {
-    addButton.click(function () {
-      var property = $('#input-property-name').val();
-      Properties.set(object, property);
-      Menu.setSelectedObject(object);
-    });
-    minusButton.click(function () {
-      var property = $('#input-property-name').val();
-      Properties.unset(object, property);
-      Menu.setSelectedObject(object);
-    });
-  })(object);
-  var line = $('<div>')
-    .addClass('input-property-value-wrapper')
-    .append($('<div>').addClass('property').append($('<input>').attr('id', 'input-property-name').attr('placeholder', 'property')))
-    .append($('<div>').addClass('value').append($('<div>').addClass('button-row').append(addButton).append(minusButton)));
-  submenuContent.append(line);
+			object[param] = '';
+		}
 
-  // If submenu closed, open it
-  var submenuProperties = $('#submenu-object-properties');
-  if(submenuProperties.hasClass('closed'))
-    submenuProperties.find('.submenu-title').click();
-};
+		// Set default blanks
+		editorSetDefaultBlanks(object);
+
+		object.type = target;
+		editorSelectObject(object);
+	});
+	content.append(div);
+
+	// Id line
+	content.append(createParameterInputLine(object, 'id'));
+
+	// Parameter line for each object's parameter (except type & id)
+	for(let key of Object.keys(object)) {
+		if(key === 'type' || key === 'id')
+			continue;
+
+		content.append(createParameterInputLine(object, key));
+	}
+
+	// Open submenu if it is closed
+	document.getElementById('submenu-object-properties').classList.remove('closed');
+}  
+
+
+
+function createParameterInputLine(object, key) {
+	let line = document.createElement('div');
+	line.classList.add('parameter');
+	let name = document.createElement('div');
+	name.innerText = key;
+	line.append(name);
+	let value = document.createElement('div');
+	let input = document.createElement('input');
+	linkInput(input, object, key);
+	value.append(input);
+	line.append(value);
+
+	return line;
+}

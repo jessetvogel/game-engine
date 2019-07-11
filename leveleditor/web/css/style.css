@@ -1,25 +1,172 @@
-/* General defaults */
-* {
-  font-family: museosans;
-  padding: 0px;
-  margin: 0px;
+@font-face {
+  font-family: "museosans";
+  src: url("../fonts/museosans.otf");
 }
-
-*:focus {
-  outline: none;
-}
-
-/* Input fields */
-input {
-  line-height: 24px;
-  height: 24px;
-  border: 0;
-  text-align: center;
+html, body {
   width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  font-family: "museosans";
+}
+
+#container {
+  display: flex;
+  height: 100%;
+}
+
+#menu {
+  width: 256px;
+  height: 100%;
+  background-color: #ECEFF1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.24);
+  z-index: 1;
+}
+#menu .submenu {
+  width: 100%;
+}
+#menu .submenu .title {
+  height: 48px;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 16px;
+  cursor: pointer;
+  background-color: #CFD8DC;
+  color: #263238;
+}
+#menu .submenu .title:hover {
+  background-color: #c0ccd1;
+}
+#menu .submenu .content {
+  padding: 0px 8px;
+}
+#menu .submenu.closed .content {
+  display: none;
+}
+
+.submenu .content .parameter {
+  margin: 8px 0px;
+  display: flex;
+}
+.submenu .content .parameter > div {
+  line-height: 24px;
+  font-size: 12px;
+}
+.submenu .content .parameter > div:first-child {
+  width: 96px;
+  padding-right: 8px;
+  color: #263238;
+}
+.submenu .content .parameter > div:nth-child(2) {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.submenu .content .text {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  margin: 8px 0px;
+  text-align: center;
+  font-size: 12px;
+  color: #263238;
+}
+
+#canvas {
+  flex-grow: 1;
+  height: 100%;
+  background-color: #ECEFF1;
+}
+#canvas canvas {
+  width: 100%;
+  height: 100%;
+}
+
+input {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  padding: 0px;
+  border: 0px;
+  text-align: center;
+  font-family: "museosans";
   font-size: 12px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
 }
-
 input:focus {
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.30);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+input.invalid {
+  color: #bf0000;
+}
+input.hidden {
+  display: none;
+}
+
+select {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  font-family: "museosans";
+  font-size: 12px;
+  text-align: center;
+  text-align-last: center;
+  background-color: white;
+  border: 0px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
+}
+select:focus {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+/* Submenu save and load */
+#save-button, #load-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  line-height: 32px;
+  padding: 0px 8px;
+  margin: 8px 0px;
+  text-align: center;
+  color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+#save-button:hover, #load-button:hover {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+#save-button img, #load-button img {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+}
+
+#save-button {
+  background-color: #60a56b;
+}
+#save-button:hover {
+  background-color: #559660;
+}
+
+#load-button {
+  background-color: #bcbd5b;
+}
+#load-button:hover {
+  background-color: #b4b549;
 }

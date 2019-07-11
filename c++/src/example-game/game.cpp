@@ -39,7 +39,7 @@ Controller* start(void* view) {
         error("Failed to start audio stream!");
     
     // Load this scene by start
-    c->goToScene("/Users/jessetvogel/Desktop/test.json");
+    c->goToScene("/Users/jessetvogel/Desktop/scene.json");
     
     return c;
 }

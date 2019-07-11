@@ -1,11 +1,13 @@
 {
 	"ground": {
 		"texture": "tiles",
-		"frame": [0, 0, 32, 32]
+		"frame": [0, 0, 32, 32],
+		"center": [16, 16]
 	},
 
 	"sign": {
 		"texture": "tiles",
-		"frame": [32, 0, 16, 16]
+		"frame": [32, 0, 16, 16],
+		"center": [8, 16]
 	}
 }

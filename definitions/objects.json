@@ -1,11 +1,11 @@
 {
 	"camera": {
 		"class": "Camera",
-		"parameters": []
+		"parameters": ["position"]
 	},
 
 	"tile": {
 		"class": "Tile",
-		"parameters": ["position", "size", "sprite"]
+		"parameters": ["position", "sprite", "scale"]
 	}
 }
