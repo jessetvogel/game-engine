@@ -6,7 +6,7 @@ var Editor = {
 	selectedObject: null,
 	selectedType: '',
 
-	filename: 'Untitled.json',
+	filename: 'untitled.json',
 
 	canvas: {
 		canvas: null,

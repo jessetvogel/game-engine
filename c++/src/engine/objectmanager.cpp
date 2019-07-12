@@ -1,4 +1,5 @@
 #include "objectmanager.hpp"
+#include "controller.hpp"
 #include <fstream>
 #include <sstream>
 #include <rapidjson/document.h>
@@ -33,10 +34,17 @@ void ObjectManager::clearObjects() {
 void ObjectManager::manageObjects() {
     // If there is a scene to load, clear objects and load that scene
     if(sceneToLoad != "") {
+        if(currentScene != "")
+            controller->onSceneEnd();
+        
         clearObjects();
         if(!loadScene(sceneToLoad))
             error("failed to load scene");
+
+        currentScene = sceneToLoad;
         sceneToLoad = "";
+        
+        controller->onSceneStart();
     }
     
     // Add newly created objects
@@ -144,31 +152,24 @@ bool ObjectManager::loadScene(string path) {
         }
         
         // Determine object data
-        string type;
-        string id;
-        unordered_map<string, string> params;
+        ObjectData data;
+        data.c = controller;
         for(auto& m : v.GetObject()) {
             if(!m.value.IsString()) {
                 error("non-string value in object in json file " + path);
                 continue;
             }
             
-            string key = m.name.GetString(), value = m.value.GetString();
+            string key = m.name.GetString(),
+                 value = m.value.GetString();
             if(key == "type")
-                type = value;
+                data.type = value;
             else if(key == "id")
-                id = value;
+                data.id = value;
             else
-                params[m.name.GetString()] = value;
+                data.parameters[m.name.GetString()] = value;
         }
         
-        // Create new object from data
-        ObjectData data = {
-            controller,
-            type,
-            id,
-            params
-        };
         createObject(data);
     }
     

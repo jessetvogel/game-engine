@@ -15,7 +15,7 @@ namespace Game {
         std::unordered_map<std::string, IObject*> objectsById;
         std::vector<IObject*> objectsToAdd, objectsToDestroy;
 
-        std::string sceneToLoad;
+        std::string currentScene, sceneToLoad;
         bool loadScene(std::string);
         void clearObjects();
         

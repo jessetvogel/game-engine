@@ -6,8 +6,8 @@ using namespace std;
 using namespace Game;
 
 #define REGEX_FLOAT "-?\\d*.?\\d+"
-regex regexFloat("^(" REGEX_FLOAT ")$");
-regex regexVec2("^(" REGEX_FLOAT "),(" REGEX_FLOAT ")$");
+regex regexFloat("^\\s*(" REGEX_FLOAT ")\\s*$");
+regex regexVec2("^\\s*(" REGEX_FLOAT ")\\s*,\\s*(" REGEX_FLOAT ")\\s*$");
 
 // ---- ObjectData ----
 template <>
@@ -29,10 +29,13 @@ Vec2 ObjectData::get(string key, Vec2 _default) {
         return _default;
     
     cmatch cm;
-    if(!regex_search(it->second.c_str(), cm, regexVec2))
-        return _default;
+    if(regex_search(it->second.c_str(), cm, regexVec2))
+        return Vec2(stof(cm[1]), stof(cm[2]));
+
+    if(regex_search(it->second.c_str(), cm, regexFloat))
+        return Vec2(stof(cm[1]), stof(cm[1]));
     
-    return Vec2(stof(cm[1]), stof(cm[2]));
+    return _default;
 }
 
 template <>

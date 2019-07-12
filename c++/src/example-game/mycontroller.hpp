@@ -13,13 +13,19 @@ namespace Example {
                          public Game::TextureManagerGL,
                          public Game::AudioManagerPM,
                          public Game::FrameBufferManagerGL,
-                         public Game::WindowManagerGLMac {
-    
+                         public Game::WindowManagerGLMac
+    {
+        
+        void init();
+        
+        void onSceneStart();
+        
     public:
            
-        MyController(void* view) : Game::WindowManagerGLMac(view),
-                                   Game::FrameBufferManagerGL(this) {}
-
+        MyController(void* view) : Game::Controller(),
+                                   Game::WindowManagerGLMac(view),
+                                   Game::FrameBufferManagerGL(this) { init(); }
+    
     };
     
 }

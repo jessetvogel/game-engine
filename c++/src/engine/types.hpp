@@ -21,7 +21,7 @@ namespace Game {
         Controller* c;
         std::string type;
         std::string id;
-        std::unordered_map<std::string, std::string>& parameters;
+        std::unordered_map<std::string, std::string> parameters;
         
         template <typename T>
         T get(std::string, T);

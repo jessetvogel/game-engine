@@ -32,6 +32,7 @@
 		318096F522C1273B0092B816 /* spritemanager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 318096F322C1273B0092B816 /* spritemanager.hpp */; };
 		3187A28522CCF882006DB2D7 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3187A28422CCF882006DB2D7 /* game.cpp */; };
 		31A6369522CA798500FEC6AC /* libfreetype.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A6369422CA798500FEC6AC /* libfreetype.6.dylib */; };
+		31D3582522D8866A0002BBA1 /* mycontroller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31D3582422D8866A0002BBA1 /* mycontroller.cpp */; };
 		31D6047D22CBEB98008204E0 /* iframebuffermanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31D6047B22CBEB98008204E0 /* iframebuffermanager.cpp */; };
 		31D6047E22CBEB98008204E0 /* iframebuffermanager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 31D6047C22CBEB98008204E0 /* iframebuffermanager.hpp */; };
 		31D6048122CBECAE008204E0 /* framebuffermanagergl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31D6047F22CBECAE008204E0 /* framebuffermanagergl.cpp */; };
@@ -103,6 +104,7 @@
 		318096F322C1273B0092B816 /* spritemanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = spritemanager.hpp; path = ../src/engine/spritemanager.hpp; sourceTree = SOURCE_ROOT; };
 		3187A28422CCF882006DB2D7 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = game.cpp; path = "../src/example-game/game.cpp"; sourceTree = "<group>"; };
 		31A6369422CA798500FEC6AC /* libfreetype.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.6.dylib; path = ../lib/freetype2/libfreetype.6.dylib; sourceTree = "<group>"; };
+		31D3582422D8866A0002BBA1 /* mycontroller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mycontroller.cpp; path = "../src/example-game/mycontroller.cpp"; sourceTree = SOURCE_ROOT; };
 		31D6047B22CBEB98008204E0 /* iframebuffermanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iframebuffermanager.cpp; path = ../src/engine/iframebuffermanager.cpp; sourceTree = SOURCE_ROOT; };
 		31D6047C22CBEB98008204E0 /* iframebuffermanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iframebuffermanager.hpp; path = ../src/engine/iframebuffermanager.hpp; sourceTree = SOURCE_ROOT; };
 		31D6047F22CBECAE008204E0 /* framebuffermanagergl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = framebuffermanagergl.cpp; path = ../src/engine/opengl/framebuffermanagergl.cpp; sourceTree = SOURCE_ROOT; };
@@ -253,6 +255,7 @@
 				31533A9922CF6C800037DDC9 /* camera.cpp */,
 				31533A9A22CF6C800037DDC9 /* camera.hpp */,
 				31181FBF22B9762300EC5BAC /* mycontroller.hpp */,
+				31D3582422D8866A0002BBA1 /* mycontroller.cpp */,
 				3187A28422CCF882006DB2D7 /* game.cpp */,
 			);
 			name = "example-game";
@@ -435,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31F5073122AE990C003F32CD /* main.m in Sources */,
+				31D3582522D8866A0002BBA1 /* mycontroller.cpp in Sources */,
 				31D8BE6522CBFD8F009954BC /* windowmanagerglmac.mm in Sources */,
 				316957D022B13BFD001BE627 /* openglview-mac.mm in Sources */,
 				31F5072E22AE990C003F32CD /* AppDelegate.mm in Sources */,

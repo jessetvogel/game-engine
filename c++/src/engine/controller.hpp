@@ -21,19 +21,26 @@ namespace Game {
                        virtual public IWindowManager,
                        virtual public ITextureManager,
                        virtual public IFrameBufferManager,
-                       virtual public IAudioManager {
+                       virtual public IAudioManager
+    {
+        friend class ObjectManager;
         
     public:
         
         Controller() : ObjectManager(this),
                        SpriteManager(this),
                        FontManager(this) {}
-                           
+        
         virtual ~Controller() {}
         
         void update(double);
         void render();
         
+    private:
+        
+        virtual void onSceneStart() {}
+        virtual void onSceneEnd() {}
+    
     };
     
 }

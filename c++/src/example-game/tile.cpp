@@ -9,42 +9,13 @@ using namespace Game;
 using namespace Example;
 
 Tile::Tile(ObjectData& data) : IObject(data) {
-    // Set gun sound
-//    gun = data.get("gun", (Audio*) nullptr);
-//    font = data.get("myriadpro", (Font*) nullptr);
     sprite = data.get("sprite", (Sprite*) nullptr);
     position = data.get("position", Vec2(0.0f, 0.0f));
-    size = data.get("size", Vec2(1.0f, 1.0f));
-    
-    // Set shader settings
-    float vertices[] = {
-        -0.5f, -0.5f,
-        -0.5f, 0.5f,
-        0.5f, -0.5f,
-        -0.5f, 0.5f,
-        0.5f, -0.5f,
-        0.5f, 0.5f
-    };
-    
-    float texCoords[] = {
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        1.0f, 1.0f,
-        0.0f, 0.0f,
-        1.0f, 1.0f,
-        1.0f, 0.0f
-    };
-    
-    IShader* shader = c->getShader("SpriteGL");
-    shader->setVertexDataLength(6);
-    shader->setAttribute("aVertex", vertices, 6, 0);
-    shader->setAttribute("aTexCoord", texCoords, 6, 0);
+    scale = data.get("scale", Vec2(1.0f, 1.0f));
 }
 
 Tile::~Tile() {
-//    c->releaseAudio(gun);
     c->releaseSprite(sprite);
-//    c->releaseFont(font);
 }
 
 void Tile::update(double dt) {
@@ -55,7 +26,7 @@ void Tile::update(double dt) {
             unordered_map<string, string> params;
             ObjectData data = { c, "tile", "", params };
             params["position"] = to_string(position.x - 1.0f) + "," + to_string(position.y);
-            params["size"] = to_string(size.x) + "," + to_string(size.y);
+            params["scale"] = to_string(scale.x) + "," + to_string(scale.y);
             params["sprite"] = "sign";
             c->createObject(data);
             
@@ -65,23 +36,6 @@ void Tile::update(double dt) {
             
         }
     }
-    
-//            gun->seekTo(0);
-//            gun->play();
-//        }
-//    }
-    
-//    if(c->isKeyDown(ArrowUp))
-//        y += 48.0f * dt;
-//
-//    if(c->isKeyDown(ArrowDown))
-//        y -= 48.0f * dt;
-//
-//    if(c->isKeyDown(ArrowLeft))
-//        x -= 48.0f * dt;
-//    
-//    if(c->isKeyDown(ArrowRight))
-//        x += 48.0f * dt;
 }
 
 #include <glm/ext.hpp>
@@ -89,7 +43,7 @@ void Tile::update(double dt) {
 void Tile::render() {
     Mat4 m = glm::mat4(1.0f);
     m = glm::translate(m, Vec3(position.x, position.y, 0.0f));
-    m = glm::scale(m, Vec3(size.x, size.y, 1.0f));
+    m = glm::scale(m, Vec3(sprite->frame.z / 16.0f * scale.x, sprite->frame.w / 16.0f * scale.y, 1.0f));
     
     Camera* camera = (Camera*) c->getObjectById("camera");
     Mat4 uMVP = camera->getVPMatrix() * m;
@@ -97,6 +51,7 @@ void Tile::render() {
     IShader* shader = c->getShader("SpriteGL");
     shader->setTexture("uTexture", sprite->texture.id);
     shader->setUniform("uFrame", Vec4(sprite->frame.x / sprite->texture.size.x, sprite->frame.y / sprite->texture.size.y, sprite->frame.z / sprite->texture.size.x, sprite->frame.w / sprite->texture.size.y));
+    shader->setUniform("uCenter", Vec2(sprite->center.x / sprite->frame.z, 1.0f - sprite->center.y / sprite->frame.w));
     shader->setUniform("uMVP", uMVP);
     shader->render();
     

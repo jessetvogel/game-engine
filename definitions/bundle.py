@@ -22,13 +22,13 @@ objects = loadJSON("objects.json")
 # Write definition instructions
 definitions = ""
 for name, path in audios.items():
-	definitions += "c->defineAudio(\"{}\", \"{}\");\n".format(name, audio_prefix + path)
+	definitions += "defineAudio(\"{}\", \"{}\");\n".format(name, audio_prefix + path)
 
 for name, path in fonts.items():
-	definitions += "c->defineFont(\"{}\", \"{}\");\n".format(name, fonts_prefix + path)
+	definitions += "defineFont(\"{}\", \"{}\");\n".format(name, fonts_prefix + path)
 
 for name, path in textures.items():
-	definitions += "c->defineTexture(\"{}\", \"{}\");\n".format(name, textures_prefix + path)
+	definitions += "defineTexture(\"{}\", \"{}\");\n".format(name, textures_prefix + path)
 
 for name, sprite in sprites.items():
 	if "texture" not in sprite:
@@ -52,14 +52,14 @@ for name, sprite in sprites.items():
 	if "center" in sprite:
 		center = sprite["center"][0:2]
 
-	definitions += "c->defineSprite(\"{}\", {{ \"{}\", {{ {}, {}, {}, {} }}, {{ {}, {} }}, {} }});\n".format(name, sprite["texture"], frame[0], frame[1], frame[2], frame[3], center[0], center[1], sprite["frames"])
+	definitions += "defineSprite(\"{}\", {{ \"{}\", {{ {}, {}, {}, {} }}, {{ {}, {} }}, {} }});\n".format(name, sprite["texture"], frame[0], frame[1], frame[2], frame[3], center[0], center[1], sprite["frames"])
 
 for name, _object in objects.items():
 	if "class" not in _object:
 		print("Object '{}' as undefined class".format(name))
 		continue
 
-	definitions += "c->defineObject(\"{}\", [](ObjectData& data) -> IObject* {{ return new {}(data); }});\n".format(name, _object["class"])
+	definitions += "defineObject(\"{}\", [](ObjectData& data) -> IObject* {{ return new {}(data); }});\n".format(name, _object["class"])
 
 # Write to file
 output = open(output_file, "w+")

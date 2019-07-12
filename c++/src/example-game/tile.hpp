@@ -8,11 +8,8 @@ namespace Example {
 
     class Tile : public Game::IObject {
         
-        Game::Sprite* sprite;
-//        Game::Audio* gun;
-//        Game::Font* font;
-        
-        Game::Vec2 position, size;
+        Game::Sprite* sprite;        
+        Game::Vec2 position, scale;
         
     public:
         
